@@ -1,127 +1,201 @@
 <#
-script1.ps1
-功能：多M3U源下载 + 分组黑名单过滤 + 分组标题重命名 + 同名分组合并归集
-输出：output\out1.m3u
+脚本功能：
+1. 多远程M3U源下载，标准格式：#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="" group-title="分组名",频道名
+2. 黑名单分组：命中黑名单group-title分组，丢弃该分组全部频道
+3. 清洗：移除emoji表情、零宽隐形Unicode特殊字符，中文保留
+4. 分组标题替换（清洗后的分组名替换，同步修改EXTINF内group-title）
+5. 同名分组合并：相同分组名归集到首次出现分组，全局频道去重
+6. 分组顺序：使用独立数组$groupOrder记录分组首次出现顺序
+7. 输出完整标准M3U，保留tvg-id/tvg-name/tvg-logo/group-title全部属性
+8. 远程源下载失败自动重试，等待8秒，最多重试3次，失败直接退出
 #>
-# 极简SSL 忽略证书，适配PowerShell7
-[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::Tls12
-[System.Net.ServicePointManager]::ServerCertificateValidationCallback = { $true }
-
-# ========== 配置区（自行修改）==========
-$outFile = "output\out1.m3u"
-
+# ===================== 【配置区，请自行修改这里】=====================
+# 黑名单分组
+$blackGroupList = @(
+    "更新时间",
+    "测试分组2",
+    "测试分组3"
+)
+# 分组重命名映射【清洗后的旧分组名 => 新分组名】
+$renameGroupMap = @{
+    "地方台" = "地方频道"
+}
 # M3U远程源列表
 $sourceUrls = @(
     "https://gitee.com/lwr851/live/raw/master/iptv.m3u",
-    "https://raw.githubusercontent.com/kangyi888/IPTV/refs/heads/main/live.m3u",
+    "https://gh-proxy.org/https://raw.githubusercontent.com/kangyi888/IPTV/refs/heads/main/live.m3u",
     "https://raw.githubusercontent.com/jn950/live/main/tv/holive.m3u"
 )
-
-# 黑名单分组：包含关键词直接丢弃该分组全部频道
-$blackListGroup = @(
-    "更新时间",
-    "MO测试",
-    "体育",
-    "地方",
-    "新闻",
-    "教育",
-    "综艺",
-    "少儿",
-    "纪实"
-)
-
-# 分组重命名映射：旧分组名 => 新分组名
-$renameMap = @{
-    "地方台" = "地方频道"
+$outFile = "output\out1.m3u"
+# 下载重试设置
+$retryMax = 3
+$retryWaitSec = 8
+# ====================================================================
+#region HTTPS证书信任
+Add-Type @"
+using System.Net;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
+public class TrustAllCertsPolicy : ICertificatePolicy {
+    public bool CheckValidationResult(ServicePoint srvPoint, X509Certificate certificate, WebRequest request, int certificateProblem) {
+        return true;
+    }
 }
-# ========================================
-
-# 字典：key=分组名，value=完整EXTINF+频道行数组，同名分组自动合并
-$groupDict = @{}
-
-foreach($url in $sourceUrls){
-    Write-Host "正在下载源（重试1/3）: $url"
-    $retryCount = 3
-    $success = $false
-    for($i=1; $i -le $retryCount; $i++){
+"@
+[System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
+[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
+#endregion
+#region 清理旧临时文件与输出文件
+if(Test-Path "tmp_src1"){Remove-Item "tmp_src1" -Force -ErrorAction SilentlyContinue}
+if(Test-Path $outFile) { Remove-Item $outFile -Force -ErrorAction SilentlyContinue }
+Write-Host " 已清理历史文件`n"
+#endregion
+#region 带重试下载函数
+function Invoke-DownloadWithRetry {
+    param(
+        [string]$DownloadUrl,
+        [string]$OutPath,
+        [int]$MaxRetry,
+        [int]$WaitSeconds
+    )
+    $tryCount = 0
+    while($tryCount -lt $MaxRetry) {
         try{
-            $resp = Invoke-WebRequest -Uri $url -UseBasicParsing -TimeoutSec 20
-            $rawContent = $resp.Content
-            Write-Host "下载文件大小: $($rawContent.Length) 字节"
-            if([string]::IsNullOrWhiteSpace($rawContent)){
-                throw "返回空内容"
-            }
-            $lines = $rawContent -split "`r?`n"
-            $currentGroup = "其他"
-            $extInfLine = $null
-
-            foreach($line in $lines){
-                $line = $line.Trim()
-                if([string]::IsNullOrWhiteSpace($line)){continue}
-
-                # 捕获EXTINF行，提取group-title
-                if($line -match '#EXTINF(.*?)group-title="([^"]+)"'){
-                    $extInfLine = $line
-                    $currentGroup = $matches[2]
-
-                    # 黑名单过滤
-                    $skipGroup = $false
-                    foreach($bw in $blackListGroup){
-                        if($currentGroup -match $bw){
-                            $skipGroup = $true
-                            break
-                        }
-                    }
-                    if($skipGroup){
-                        $currentGroup = $null
-                        $extInfLine = $null
-                        continue
-                    }
-                    # 分组重命名
-                    if($renameMap.ContainsKey($currentGroup)){
-                        $currentGroup = $renameMap[$currentGroup]
-                    }
-                }
-                # 频道URL行，并且存在有效的EXTINF和分组
-                if($currentGroup -and $extInfLine -and $line -notmatch "^#"){
-                    $record = @($extInfLine,$line)
-                    if(-not $groupDict.ContainsKey($currentGroup)){
-                        $groupDict[$currentGroup] = @()
-                    }
-                    $groupDict[$currentGroup] += $record
-                    $extInfLine = $null
-                }
-            }
-            $success = $true
-            Write-Host "源解析完成：$url"
-            break
+            $tryCount++
+            Write-Host " 正在下载源（尝试 $tryCount/$MaxRetry）：$DownloadUrl"
+            Invoke-WebRequest -Uri $DownloadUrl -OutFile $OutPath -TimeoutSec 30
+            Write-Host " 下载成功`n"
+            return $true
         }
         catch{
-            Write-Host "下载失败，第$i次重试：$($_.Exception.Message)"
-            Start-Sleep -Seconds 3
+            Write-Host " 下载尝试 $tryCount 失败：$($_.Exception.Message)" -ForegroundColor DarkYellow
+            if($tryCount -ge $MaxRetry) {
+                Write-Host " 已达到最大重试次数，下载终止！" -ForegroundColor Red
+                return $false
+            }
+            Write-Host " 等待 ${WaitSeconds}s 后重试..."
+            Start-Sleep -Seconds $WaitSeconds
         }
     }
-    if(-not $success){
-        Write-Host "源下载最终失败：$url"
+    return $false
+}
+#endregion
+#region 下载全部源
+$tmpList = @()
+foreach($url in $sourceUrls){
+    $tmpPath = [System.IO.Path]::GetTempFileName()
+    $tmpList += $tmpPath
+    $ok = Invoke-DownloadWithRetry -DownloadUrl $url -OutPath $tmpPath -MaxRetry $retryMax -WaitSeconds $retryWaitSec
+    if(-not $ok){
+        exit 1
     }
 }
+#endregion
+#region M3U解析：$groupOrder数组记录分组首次出现顺序
+Write-Host " 开始解析M3U源，黑名单过滤+清洗表情+分组重命名+同名分组合并`n"
+$entryHash = @{} #全局去重 key=频道名|url
+$groupBucket = @{} #分组存储：key=最终分组名，value=频道对象数组
+$groupOrder = @()  #【核心：独立数组记录分组首次出现顺序】
+$totalChannel = 0
 
-# 清空旧文件，写入M3U头部
-if(Test-Path $outFile){
-    Remove-Item $outFile -Force
-}
-"#EXTM3U" | Out-File $outFile -Encoding UTF8
+# 输出头部，保留完整EPG信息
+$epgHeader = '#EXTM3U x-tvg-url="http://epg.51zmt.top:8000/e.xml,https://tv.mxdyeah.top/epgphp/t.xml,https://fy.188766.xyz/e.xml" catchup="append" catchup-source="?playseek=${(b)yyyyMMddHHmmss}-${(e)yyyyMMddHHmmss}"'
 
-# 遍历分组输出归集后的完整m3u内容
-foreach($gName in $groupDict.Keys){
-    Write-Host "输出分组：$gName，频道数量：$($groupDict[$gName].Count/2)"
-    $groupDict[$gName] -join "`r`n" | Out-File $outFile -Append -Encoding UTF8
-    "`r`n" | Out-File $outFile -Append -Encoding UTF8
-}
+for($i=0;$i -lt $tmpList.Count;$i++){
+    $tempPath = $tmpList[$i]
+    $srcIndex = $i + 1
+    $rawLines = Get-Content $tempPath -Encoding UTF8
+    $skipThisGroup = $false
+    $extinfLine = ""
+    $currentGroupName = ""
+    $currentChannelName = ""
 
-# ========== 输出文件校验，防止空m3u ==========
-$finalFile = Get-Item $outFile
-if($finalFile.Length -lt 100){
-    throw "输出文件过小($($finalFile.Length)字节)，生成空m3u，终止任务"
+    foreach($line in $rawLines){
+        $lineTrim = $line.Trim()
+        if([string]::IsNullOrWhiteSpace($lineTrim)){continue}
+
+        # 匹配EXTINF行提取group-title
+        if($lineTrim -match '^#EXTINF:(.+?)group-title="([^"]+)",(.*)$'){
+            $fullExtInfRaw = $lineTrim
+            $groupRaw = $matches[2]
+            $chNameRaw = $matches[3]
+
+            # 清洗表情、零宽字符
+            $groupClean = [regex]::Replace($groupRaw, '[\u2600-\u26FF]|[\u2700-\u27BF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|\u200B|\u200C|\u200D|\uFEFF', '')
+            $groupClean = $groupClean.Trim()
+            $chClean = [regex]::Replace($chNameRaw, '[\u2600-\u26FF]|[\u2700-\u27BF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|\u200B|\u200C|\u200D|\uFEFF', '')
+            $chClean = $chClean.Trim()
+            $fullExtInfClean = [regex]::Replace($fullExtInfRaw, '[\u2600-\u26FF]|[\u2700-\u27BF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|\u200B|\u200C|\u200D|\uFEFF', '')
+
+            # 分组重命名
+            $finalGroupName = $groupClean
+            if($renameGroupMap.ContainsKey($groupClean)){
+                $finalGroupName = $renameGroupMap[$groupClean]
+                Write-Host " 源$srcIndex：分组重命名【$groupClean】→【$finalGroupName】"
+                $fullExtInfClean = $fullExtInfClean -replace 'group-title="([^"]+)"', "group-title=`"$finalGroupName`""
+            }
+
+            $extinfLine = $fullExtInfClean
+            $currentGroupName = $finalGroupName
+            $currentChannelName = $chClean
+
+            # 黑名单判断
+            if($blackGroupList -contains $groupClean){
+                $skipThisGroup = $true
+                Write-Host " 源$srcIndex：命中黑名单分组【$groupClean】，丢弃该分组全部频道"
+            }else{
+                $skipThisGroup = $false
+                # 首次出现的分组，追加进groupOrder数组，固定顺序
+                if(-not $groupBucket.ContainsKey($finalGroupName)){
+                    $groupBucket[$finalGroupName] = @()
+                    $groupOrder += $finalGroupName
+                }
+            }
+            continue
+        }
+
+        # 频道URL行
+        if(-not $lineTrim.StartsWith("#")){
+            if($skipThisGroup){
+                $extinfLine = ""
+                continue
+            }
+            if(-not [string]::IsNullOrWhiteSpace($extinfLine) -and -not [string]::IsNullOrWhiteSpace($lineTrim)){
+                $urlClean = [regex]::Replace($lineTrim, '[\u2600-\u26FF]|[\u2700-\u27BF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|\u200B|\u200C|\u200D|\uFEFF', '')
+                $uniqueKey = "$currentChannelName|$urlClean"
+                if(-not $entryHash.ContainsKey($uniqueKey)){
+                    $entryHash[$uniqueKey] = $true
+                    $groupBucket[$currentGroupName] += @{
+                        ExtInf = $extinfLine
+                        Url    = $urlClean
+                    }
+                    $totalChannel++
+                }
+            }
+            $extinfLine = ""
+        }
+    }
 }
-Write-Host "脚本执行完成，输出文件大小：$($finalFile.Length) 字节"
+#endregion
+
+#region 组装输出M3U，严格按照$groupOrder顺序输出
+$m3uEntries = @()
+$m3uEntries += $epgHeader
+foreach($gName in $groupOrder) {
+    $items = $groupBucket[$gName]
+    foreach($ch in $items) {
+        $m3uEntries += $ch.ExtInf
+        $m3uEntries += $ch.Url
+    }
+}
+$m3uEntries | Out-File $outFile -Encoding UTF8
+Write-Host "`n 解析完成，输出文件：$outFile"
+Write-Host " 有效频道总数：$totalChannel`n"
+#endregion
+
+#region 清理临时文件
+foreach($tmp in $tmpList){
+    if(Test-Path $tmp){Remove-Item $tmp -Force -ErrorAction SilentlyContinue}
+}
+Write-Host " 临时文件清理完毕"
+Write-Host "==== script1 执行完成 ====" -ForegroundColor Green
