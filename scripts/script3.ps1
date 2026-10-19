@@ -33,7 +33,7 @@ $renameMap = @{
 # ========================================
 
 # 存储分组字典，key=分组名，value=频道行数组（自动同名合并）
-$groupDict = @{}
+$groupDict = [ordered]@{}
 
 foreach($url in $sourceUrls){
     Write-Host "正在下载源（重试1/3）: $url"
