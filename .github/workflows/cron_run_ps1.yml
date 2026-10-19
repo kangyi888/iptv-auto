@@ -3,8 +3,8 @@ on:
   schedule:
     # 北京时间 06:00 → UTC 前一天22:00
     - cron: '0 22 * * *'
-    # 北京时间 16:00 → UTC 08:00
-    - cron: '0 8 * * *'
+    # 北京时间 17:00 → UTC 09:00
+    - cron: '0 9 * * *'
   workflow_dispatch: # 支持手动触发
 
 jobs:
@@ -18,8 +18,12 @@ jobs:
 
       - name: Create output folder
         run: |
-          if (!(Test-Path "output")){ New-Item -ItemType Directory -Path "output" }
-          if (!(Test-Path "output/.gitkeep")){ New-Item -ItemType File -Path "output/.gitkeep" }
+          if (!(Test-Path "output")){
+            New-Item -ItemType Directory -Path "output" | Out-Null
+          }
+          if (!(Test-Path "output\.gitkeep")){
+            New-Item -ItemType File -Path "output\.gitkeep" | Out-Null
+          }
         shell: pwsh
 
       # ========== Script1 ==========
@@ -95,8 +99,8 @@ jobs:
           )
           # 控制台输出
           $content | Write-Host
-          # 写入文件，UTF8
-          $content | Out-File "output/run_summary.txt" -Encoding UTF8
+          # 写入文件，UTF8，Windows用反斜杠
+          $content | Out-File "output\run_summary.txt" -Encoding UTF8
         shell: pwsh
 
       # ========== 提交文件回仓库 ==========
