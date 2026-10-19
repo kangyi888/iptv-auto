@@ -11,25 +11,24 @@ $outFile = "output\out3.txt"
 
 # 4个远程txt源地址
 $sourceUrls = @(
-    "https://xxx/source1.txt",
-    "https://xxx/source2.txt",
-    "https://xxx/source3.txt",
-    "https://xxx/source4.txt"
+    "https://gitee.com//hw2837/iptv/raw/master/iptv",
+    "https://gitee.com/mycaijunhao/123/raw/master/sttv",
+    "https://gitee.com/zwssina/yunduanyuan/raw/master/SB",
+    "https://pastebin.com/raw/RV8wks5K"
 )
 
 # 【黑名单分组：包含这些关键词的分组直接丢弃】
 $blackListGroup = @(
-    "测试",
-    "广告",
+    "测试区_7890",
+    "幼儿园",
     "备用",
     "垃圾频道"
 )
 
 # 【分组重命名映射：旧名称 -> 新名称】
 $renameMap = @{
-    "央视频道" = "央视"
-    "卫视频道" = "卫视"
-    "地方频道" = "地方台"
+    "地方台" = "地方频道"
+
 }
 # ========================================
 
