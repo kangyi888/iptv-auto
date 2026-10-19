@@ -1,4 +1,4 @@
-﻿<#
+<#
 脚本功能：
 1. 下载3个远程M3U源，适配标准格式：#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="" group-title="分组名",频道名
 2. 支持EPG头行 #EXTM3U x-tvg-url="..." 保留
@@ -7,7 +7,7 @@
 5. 分组标题替换（清洗后的分组名匹配替换）
 6. 同名分组合并：相同分组名全部频道归集到首次出现的分组，全局去重
 7. 输出完整标准M3U（保留tvg-id/tvg-name/tvg-logo/group-title全部属性）
-8. 远程源下载失败自动重试，间隔8秒，最多重试3次，失败则退出
+8. 远程源下载失败自动重试，间隔15秒，最多重试3次，失败则退出
 #>
 # ===================== 【配置区，请自行修改这里】=====================
 # 黑名单分组：填写分组名称（不需要,#genre#后缀，直接写分组名）
@@ -38,7 +38,7 @@ $tempFile2 = "$PSScriptRoot\temp_src2.m3u"
 $tempFile3 = "$PSScriptRoot\temp_src3.m3u"
 # 下载重试设置
 $retryMax = 3
-$retryWaitSec = 8
+$retryWaitSec = 15
 # ====================================================================
 #region HTTPS证书信任
 Add-Type @"
@@ -52,7 +52,7 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 }
 "@
 [System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
-[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
+[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.ServicePointManager]::Tls12
 #endregion
 #region 清理旧临时文件
 $tempList = @($tempFile1,$tempFile2,$tempFile3)
@@ -75,7 +75,14 @@ function Invoke-DownloadWithRetry {
         try{
             $tryCount++
             Write-Host " 正在下载源（尝试 $tryCount/$MaxRetry）：$DownloadUrl"
-            Invoke-WebRequest -Uri $DownloadUrl -OutFile $OutPath -TimeoutSec 30
+            # 增加 -UseBasicParsing 解决Windows Powershell IE引擎导致空白文件
+            Invoke-WebRequest -Uri $DownloadUrl -OutFile $OutPath -TimeoutSec 30 -UseBasicParsing
+            # 校验文件大小，小于100字节判定下载无效（空文件）
+            $fileInfo = Get-Item $OutPath
+            Write-Host " 下载文件大小：$($fileInfo.Length) 字节"
+            if($fileInfo.Length -lt 100){
+                throw "文件内容过小，判定为空源"
+            }
             Write-Host " 下载成功`n"
             return $true
         }
