@@ -2,7 +2,7 @@
 script3.ps1
 功能：TVbox #genre# 多txt源下载 + 分组重命名 + 同名分组合并 + 黑名单过滤 + 频道去重
 全部源为 xxx,#genre# 格式，不解析M3U
-【重点】分组内频道保留原始读取顺序，不再乱序
+【重点】分组内频道保留原始读取顺序，后续源同分组频道追加到尾部，不再乱序
 #>
 # 极简SSL 忽略证书，适配PowerShell7
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::Tls12
@@ -32,9 +32,8 @@ $renameMap = @{
 $groupDict = @{}
 # 记录分组首次出现顺序
 $groupOrder = @()
-
 foreach($url in $sourceUrls){
-    Write-Host "正在下载源（重试1/3）: $url"
+    Write-Host "正在下载源：$url"
     $retryCount = 3
     $success = $false
     for($i=1; $i -le $retryCount; $i++){
@@ -48,11 +47,9 @@ foreach($url in $sourceUrls){
             $lines = $rawContent -split "`r?`n"
             $currentGroup = $null
             $skipCurrentGroup = $false
-
             foreach($line in $lines){
                 $line = $line.Trim()
                 if([string]::IsNullOrWhiteSpace($line)){continue}
-
                 # 识别TVbox分组行：xxx,#genre#
                 if($line -match '^(.*),#genre#$'){
                     $rawGName = $matches[1]
@@ -74,7 +71,7 @@ foreach($url in $sourceUrls){
                     }else{
                         $currentGroup = $rawGName
                     }
-                    # 首次出现该分组，初始化：哈希表(去重标记) + 有序频道数组
+                    # 首次出现该分组，初始化；分组已存在直接复用，频道追加至数组尾部
                     if(-not $groupDict.ContainsKey($currentGroup)){
                         $groupDict[$currentGroup] = [PSCustomObject]@{
                             seen  = @{}
@@ -84,7 +81,6 @@ foreach($url in $sourceUrls){
                     }
                     continue
                 }
-
                 # 频道行，当前分组有效且不处于黑名单跳过状态
                 if($currentGroup -and (-not $skipCurrentGroup)){
                     $gData = $groupDict[$currentGroup]
