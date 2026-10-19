@@ -2,6 +2,7 @@
 script3.ps1
 功能：TVbox #genre# 多txt源下载 + 分组重命名 + 同名分组合并 + 黑名单过滤 + 频道去重
 全部源为 xxx,#genre# 格式，不解析M3U
+【重点】分组内频道保留原始读取顺序，不再乱序
 #>
 # 极简SSL 忽略证书，适配PowerShell7
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::Tls12
@@ -27,9 +28,9 @@ $renameMap = @{
     "地方台" = "地方频道"
 }
 # ========================================
-# 存储分组字典，key=分组名，value=频道哈希表（用于去重）
+# 存储分组信息：key=分组名，value=对象包含去重哈希 + 有序频道数组
 $groupDict = @{}
-# 记录分组首次出现顺序，解决字典乱序
+# 记录分组首次出现顺序
 $groupOrder = @()
 
 foreach($url in $sourceUrls){
@@ -73,9 +74,12 @@ foreach($url in $sourceUrls){
                     }else{
                         $currentGroup = $rawGName
                     }
-                    # 首次出现该分组，初始化哈希表用于频道去重
+                    # 首次出现该分组，初始化：哈希表(去重标记) + 有序频道数组
                     if(-not $groupDict.ContainsKey($currentGroup)){
-                        $groupDict[$currentGroup] = @{}
+                        $groupDict[$currentGroup] = [PSCustomObject]@{
+                            seen  = @{}
+                            items = @()
+                        }
                         $groupOrder += $currentGroup
                     }
                     continue
@@ -83,9 +87,11 @@ foreach($url in $sourceUrls){
 
                 # 频道行，当前分组有效且不处于黑名单跳过状态
                 if($currentGroup -and (-not $skipCurrentGroup)){
-                    # 哈希表自动去重，相同行只保留第一次
-                    if(-not $groupDict[$currentGroup].ContainsKey($line)){
-                        $groupDict[$currentGroup][$line] = $true
+                    $gData = $groupDict[$currentGroup]
+                    # 只有第一次见到这条频道行，才加入有序数组
+                    if(-not $gData.seen.ContainsKey($line)){
+                        $gData.seen[$line] = $true
+                        $gData.items += $line
                     }
                 }
             }
@@ -106,13 +112,13 @@ foreach($url in $sourceUrls){
 if(Test-Path $outFile){
     Remove-Item $outFile -Force
 }
-# 按照分组首次出现顺序输出
+# 按照分组首次出现顺序输出；分组内部频道保持读取顺序
 foreach($gName in $groupOrder){
-    $channelList = $groupDict[$gName].Keys
+    $channelList = $groupDict[$gName].items
     Write-Host "输出分组：$gName，频道数量：$($channelList.Count)"
     # 输出TVbox标准分组标记
     "$gName,#genre#" | Out-File $outFile -Append -Encoding UTF8
-    # 输出频道列表
+    # 输出频道列表（保持原始顺序）
     $channelList -join "`r`n" | Out-File $outFile -Append -Encoding UTF8
     "`r`n" | Out-File $outFile -Append -Encoding UTF8
 }
