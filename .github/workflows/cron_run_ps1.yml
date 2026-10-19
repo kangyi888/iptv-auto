@@ -1,43 +1,112 @@
-name: Cron Run PS1 Scripts
+name: IPTV Auto Update
 on:
   schedule:
-    # UTC 09:00 / 22:00 → 北京时间 17:00 / 次日06:00
-    - cron: '0 9,22 * * *'
-  workflow_dispatch: # 支持手动触发测试
+    # 北京时间 06:00 → UTC 前一天22:00
+    - cron: '0 22 * * *'
+    # 北京时间 16:00 → UTC 08:00
+    - cron: '0 8 * * *'
+  workflow_dispatch: # 支持手动触发
 
 jobs:
-  run-scripts:
+  run-iptv-scripts:
     runs-on: windows-latest
     steps:
-      - name: 检出仓库代码
+      - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: 执行 script1.ps1（输出m3u）
-        shell: pwsh
+      - name: Create output folder
         run: |
-          .\scripts\script1.ps1
-          Write-Host "==== script1 执行完成，等待60秒 ===="
-          Start-Sleep -Seconds 60
-
-      - name: 执行 script2.ps1（输出m3u）
+          if (!(Test-Path "output")){ New-Item -ItemType Directory -Path "output" }
+          if (!(Test-Path "output/.gitkeep")){ New-Item -ItemType File -Path "output/.gitkeep" }
         shell: pwsh
+
+      # ========== Script1 ==========
+      - name: Run script1.ps1
+        id: run_script1
+        continue-on-error: true
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_retries: 1
+          shell: pwsh
+          command: |
+            Write-Host "==== Start script1.ps1 ===="
+            .\scripts\script1.ps1
+            Write-Host "==== script1.ps1 finished ===="
+
+      - name: Wait 60s after script1
+        if: success() || failure()
+        run: Start-Sleep -Seconds 60
+        shell: pwsh
+
+      # ========== Script2 ==========
+      - name: Run script2.ps1
+        id: run_script2
+        continue-on-error: true
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_retries: 1
+          shell: pwsh
+          command: |
+            Write-Host "==== Start script2.ps1 ===="
+            .\scripts\script2.ps1
+            Write-Host "==== script2.ps1 finished ===="
+
+      - name: Wait 60s after script2
+        if: success() || failure()
+        run: Start-Sleep -Seconds 60
+        shell: pwsh
+
+      # ========== Script3 ==========
+      - name: Run script3.ps1
+        id: run_script3
+        continue-on-error: true
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_retries: 1
+          shell: pwsh
+          command: |
+            Write-Host "==== Start script3.ps1 ===="
+            .\scripts\script3.ps1
+            Write-Host "==== script3.ps1 finished ===="
+
+      # ========== 汇总日志：控制台打印 + 写入 output/run_summary.txt ==========
+      - name: Print & Save execution summary
+        if: success() || failure()
         run: |
-          .\scripts\script2.ps1
-          Write-Host "==== script2 执行完成，等待60秒 ===="
-          Start-Sleep -Seconds 60
-
-      - name: 执行 script3.ps1（输出txt）
+          $time = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+          $s1 = "${{ steps.run_script1.outcome }}"
+          $s2 = "${{ steps.run_script2.outcome }}"
+          $s3 = "${{ steps.run_script3.outcome }}"
+          $content = @(
+            "=====================================",
+            "           IPTV 任务执行汇总          ",
+            "执行时间: $time",
+            "=====================================",
+            "script1.ps1 : $s1",
+            "script2.ps1 : $s2",
+            "script3.ps1 : $s3",
+            "=====================================",
+            ""
+          )
+          # 控制台输出
+          $content | Write-Host
+          # 写入文件，UTF8
+          $content | Out-File "output/run_summary.txt" -Encoding UTF8
         shell: pwsh
-        run: |
-          .\scripts\script3.ps1
-          Write-Host "==== script3 全部脚本执行完毕 ===="
 
-      - name: 提交output文件回仓库
-        shell: pwsh
+      # ========== 提交文件回仓库 ==========
+      - name: Commit and push output files
+        if: success() || failure()
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add output/
           git status
-          git commit -m "Auto update output files [Cron Job]" || Write-Host "无文件变更，跳过提交"
+          git commit -m "Auto update IPTV output files [GitHub Actions]" || Write-Host "No changes to commit"
           git push
+        shell: pwsh
