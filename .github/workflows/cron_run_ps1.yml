@@ -40,9 +40,9 @@ jobs:
             .\scripts\script1.ps1
             Write-Host "==== script1.ps1 finished ===="
 
-      - name: Wait 60s after script1
+      - name: Wait 15s after script1
         if: success() || failure()
-        run: Start-Sleep -Seconds 60
+        run: Start-Sleep -Seconds 15
         shell: pwsh
 
       # ========== Script2 ==========
@@ -59,9 +59,9 @@ jobs:
             .\scripts\script2.ps1
             Write-Host "==== script2.ps1 finished ===="
 
-      - name: Wait 60s after script2
+      - name: Wait 15s after script2
         if: success() || failure()
-        run: Start-Sleep -Seconds 60
+        run: Start-Sleep -Seconds 15
         shell: pwsh
 
       # ========== Script3 ==========
