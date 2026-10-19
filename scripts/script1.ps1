@@ -28,8 +28,8 @@ $renameGroupMap = @{
 }
 # 3个远程M3U地址
 $urlM3U1 = "https://gitee.com/lwr851/live/raw/master/iptv.m3u"
-$urlM3U2 = "https://gh-proxy.org/https://raw.githubusercontent.com/kangyi888/IPTV/refs/heads/main/live.m3u"
-$urlM3U3 = "https://gh-proxy.org/https://raw.githubusercontent.com/jn950/live/main/tv/holive.m3u"
+$urlM3U2 = "https://raw.githubusercontent.com/kangyi888/IPTV/refs/heads/main/live.m3u"
+$urlM3U3 = "https://raw.githubusercontent.com/jn950/live/main/tv/holive.m3u"
 # 输出文件（输出到上层output目录）
 $outFileName = "../output/out1.m3u"
 # 临时本地文件（放在脚本同目录）
