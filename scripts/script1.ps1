@@ -14,7 +14,7 @@ $outFile = "output\out1.m3u"
 $sourceUrls = @(
     "https://gitee.com/lwr851/live/raw/master/iptv.m3u",
     "https://raw.githubusercontent.com/kangyi888/IPTV/refs/heads/main/live.m3u",
-    "https://raw.githubusercontent.com/jn958/live/main/holive.m3u"
+    "https://raw.githubusercontent.com/jn950/live/main/tv/holive.m3u"
 )
 
 # 黑名单分组：包含关键词直接丢弃该分组全部频道
@@ -25,6 +25,7 @@ $blackListGroup = @(
     "地方",
     "新闻",
     "教育",
+    "综艺",
     "少儿",
     "纪实"
 )
@@ -36,7 +37,7 @@ $renameMap = @{
 # ========================================
 
 # 字典：key=分组名，value=完整EXTINF+频道行数组，同名分组自动合并
-$groupDict = [ordered]@{}
+$groupDict = @{}
 
 foreach($url in $sourceUrls){
     Write-Host "正在下载源（重试1/3）: $url"
