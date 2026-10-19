@@ -1,22 +1,20 @@
 <#
 script3.ps1
-功能：多txt源下载 + 分组重命名 + 同名分组合并 + 黑名单过滤
+功能：TVbox #genre# 多txt源下载 + 分组重命名 + 同名分组合并 + 黑名单过滤 + 频道去重
+全部源为 xxx,#genre# 格式，不解析M3U
 #>
 # 极简SSL 忽略证书，适配PowerShell7
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::Tls12
 [System.Net.ServicePointManager]::ServerCertificateValidationCallback = { $true }
-
 # ========== 配置区（在这里修改）==========
 $outFile = "output\out3.txt"
-
-# 4个远程txt源地址
+# 4个远程txt源地址（全部TVbox #genre#格式）
 $sourceUrls = @(
     "https://gitee.com//hw2837/iptv/raw/master/iptv",
     "https://gitee.com/mycaijunhao/123/raw/master/sttv",
     "https://gitee.com/zwssina/yunduanyuan/raw/master/SB",
     "https://pastebin.com/raw/RV8wks5K"
 )
-
 # 【黑名单分组：包含这些关键词的分组直接丢弃】
 $blackListGroup = @(
     "测试区_7890",
@@ -24,16 +22,15 @@ $blackListGroup = @(
     "备用1",
     "垃圾频道1"
 )
-
 # 【分组重命名映射：旧名称 -> 新名称】
 $renameMap = @{
-    "地方台" = "央视"
-
+    "地方台" = "地方频道"
 }
 # ========================================
-
-# 存储分组字典，key=分组名，value=频道行数组（自动同名合并）
+# 存储分组字典，key=分组名，value=频道哈希表（用于去重）
 $groupDict = @{}
+# 记录分组首次出现顺序，解决字典乱序
+$groupOrder = @()
 
 foreach($url in $sourceUrls){
     Write-Host "正在下载源（重试1/3）: $url"
@@ -48,39 +45,48 @@ foreach($url in $sourceUrls){
                 throw "返回空内容"
             }
             $lines = $rawContent -split "`r?`n"
-            $currentGroup = "其他" # 默认分组
+            $currentGroup = $null
+            $skipCurrentGroup = $false
 
             foreach($line in $lines){
                 $line = $line.Trim()
                 if([string]::IsNullOrWhiteSpace($line)){continue}
 
-                # 匹配 #EXTINF 分组信息
-                if($line -match '#EXTINF.*group-title="([^"]+)"'){
-                    $currentGroup = $matches[1]
-                    # 黑名单过滤：包含黑名单关键词直接跳过这个分组
-                    $skipGroup = $false
+                # 识别TVbox分组行：xxx,#genre#
+                if($line -match '^(.*),#genre#$'){
+                    $rawGName = $matches[1]
+                    # 黑名单判断
+                    $skipCurrentGroup = $false
                     foreach($bw in $blackListGroup){
-                        if($currentGroup -match $bw){
-                            $skipGroup = $true
+                        if($rawGName -match $bw){
+                            $skipCurrentGroup = $true
                             break
                         }
                     }
-                    if($skipGroup){
+                    if($skipCurrentGroup){
                         $currentGroup = $null
                         continue
                     }
                     # 分组重命名
-                    if($renameMap.ContainsKey($currentGroup)){
-                        $currentGroup = $renameMap[$currentGroup]
+                    if($renameMap.ContainsKey($rawGName)){
+                        $currentGroup = $renameMap[$rawGName]
+                    }else{
+                        $currentGroup = $rawGName
                     }
+                    # 首次出现该分组，初始化哈希表用于频道去重
+                    if(-not $groupDict.ContainsKey($currentGroup)){
+                        $groupDict[$currentGroup] = @{}
+                        $groupOrder += $currentGroup
+                    }
+                    continue
                 }
 
-                # 频道行（url行），并且当前分组不为空
-                if($currentGroup -and $line -notmatch "^#"){
-                    if(-not $groupDict.ContainsKey($currentGroup)){
-                        $groupDict[$currentGroup] = @()
+                # 频道行，当前分组有效且不处于黑名单跳过状态
+                if($currentGroup -and (-not $skipCurrentGroup)){
+                    # 哈希表自动去重，相同行只保留第一次
+                    if(-not $groupDict[$currentGroup].ContainsKey($line)){
+                        $groupDict[$currentGroup][$line] = $true
                     }
-                    $groupDict[$currentGroup] += $line
                 }
             }
             $success = $true
@@ -96,22 +102,20 @@ foreach($url in $sourceUrls){
         Write-Host "源下载最终失败：$url"
     }
 }
-
 # 清空旧文件
 if(Test-Path $outFile){
     Remove-Item $outFile -Force
 }
-
-# 按分组顺序输出归集后的内容
-foreach($gName in $groupDict.Keys){
-    Write-Host "输出分组：$gName，频道数量：$($groupDict[$gName].Count)"
-    # 输出分组标题
-    "【$gName】" | Out-File $outFile -Append -Encoding UTF8
-    # 输出该分组所有频道
-    $groupDict[$gName] -join "`r`n" | Out-File $outFile -Append -Encoding UTF8
+# 按照分组首次出现顺序输出
+foreach($gName in $groupOrder){
+    $channelList = $groupDict[$gName].Keys
+    Write-Host "输出分组：$gName，频道数量：$($channelList.Count)"
+    # 输出TVbox标准分组标记
+    "$gName,#genre#" | Out-File $outFile -Append -Encoding UTF8
+    # 输出频道列表
+    $channelList -join "`r`n" | Out-File $outFile -Append -Encoding UTF8
     "`r`n" | Out-File $outFile -Append -Encoding UTF8
 }
-
 # ========== 输出文件校验，防止空txt ==========
 $finalFile = Get-Item $outFile
 if($finalFile.Length -lt 100){
