@@ -1,7 +1,6 @@
 <#
 script2.ps1
 功能：多M3U源下载 + 分组黑名单过滤 + 分组标题重命名 + 同名分组合并归集
-✅ 分组顺序：按分组第一次出现的先后顺序输出（按源读取顺序）
 输出：output\out2.m3u
 #>
 # 极简SSL 忽略证书，适配PowerShell7
@@ -21,9 +20,8 @@ $sourceUrls = @(
 # 黑名单分组：包含关键词直接丢弃该分组全部频道
 $blackListGroup = @(
     "更新时间",
-    "广告1",
-    "备用1",
-    "垃圾频道"
+    "测试分组2",
+    "测试分组3"
 )
 
 # 分组重命名映射：旧分组名 => 新分组名
@@ -32,8 +30,8 @@ $renameMap = @{
 }
 # ========================================
 
-# ========== 重点修改：有序字典，记住分组首次出现顺序 ==========
-$groupDict = [ordered]@{}
+# 字典：key=分组名，value=完整EXTINF+频道行数组，同名分组自动合并
+$groupDict = @{}
 
 foreach($url in $sourceUrls){
     Write-Host "正在下载源（重试1/3）: $url"
@@ -108,7 +106,7 @@ if(Test-Path $outFile){
 }
 "#EXTM3U" | Out-File $outFile -Encoding UTF8
 
-# 遍历有序字典，按首次出现顺序输出分组
+# 遍历分组输出归集后的完整m3u内容
 foreach($gName in $groupDict.Keys){
     Write-Host "输出分组：$gName，频道数量：$($groupDict[$gName].Count/2)"
     $groupDict[$gName] -join "`r`n" | Out-File $outFile -Append -Encoding UTF8
