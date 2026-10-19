@@ -1,9 +1,9 @@
 =====================================
            IPTV 任务执行汇总          
-执行时间: 2026-10-19 06:31:43
+执行时间: 2026-10-19 06:50:56
 =====================================
-script1.ps1 : success
-script2.ps1 : success
-script3.ps1 : success
+script1.ps1 : failure
+script2.ps1 : failure
+script3.ps1 : failure
 =====================================
 
