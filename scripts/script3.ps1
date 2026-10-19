@@ -1,34 +1,35 @@
 <#
 脚本功能：
-1. 4个远程txt直播源下载，识别#EXTINF group-title分组
-2. 黑名单分组：命中黑名单group-title分组，丢弃该分组全部频道
-3. 清洗：移除emoji表情、零宽隐形Unicode特殊字符，中文保留
-4. 分组标题替换（清洗后的分组名替换）
-5. 同名分组合并：相同分组名归集到首次出现分组，全局频道去重
-6. 分组顺序：使用独立数组$groupOrder记录分组首次出现顺序
-7. 输出txt文本，格式【分组名】+频道地址
-8. 远程源下载失败自动重试，等待8秒，最多重试3次，失败直接退出
+1. 从网络下载4个TVbox直播源txt（支持 #genre# 分组标记）
+2. 支持【黑名单分组列表】，对全部4个源生效，命中黑名单分组标题时，丢弃该分组标题+分组下全部频道，直到下一个,#genre#
+3. 新增：分组标题替换，旧分组行=>新分组行
+4. 合并全部剩余内容，同名分组合并归集，按【频道名,播放URL】整行去重
+5. 输出合并后的单一txt文件 out3.txt
+6. 自带HTTPS证书信任、临时文件清理
+新增：远程源下载失败自动重试，等待8秒，最多重试3次，失败直接退出
 #>
 # ===================== 【配置区，请自行修改这里】=====================
-# 黑名单分组
+# 黑名单分组：在这里添加需要整体过滤的分组标题，格式："xxx,#genre#"
 $blackGroupList = @(
-    "测试区_7890",
-    "幼儿园",
-    "备用1",
-    "垃圾频道1"
+    "测试区_7890,#genre#",
+    "幼儿园,#genre#"
 )
-# 分组重命名映射【清洗后的旧分组名 => 新分组名】
+# ==========【新增分组重命名映射】旧分组完整行 => 新分组完整行 ==========
 $renameGroupMap = @{
-    "地方台" = "地方频道"
+    "地方台,#genre#" = "地方频道,#genre#"
 }
 # 4个远程txt源地址
-$sourceUrls = @(
-    "https://gitee.com//hw2837/iptv/raw/master/iptv",
-    "https://gitee.com/mycaijunhao/123/raw/master/sttv",
-    "https://gitee.com/zwssina/yunduanyuan/raw/master/SB",
-    "https://pastebin.com/raw/RV8wks5K"
-)
-$outFile = "output\out3.txt"
+$urlTxt1 = "https://gitee.com//hw2837/iptv/raw/master/iptv"
+$urlTxt2 = "https://gitee.com/mycaijunhao/123/raw/master/sttv"
+$urlTxt3 = "https://gitee.com/zwssina/yunduanyuan/raw/master/SB"
+$urlTxt4 = "https://pastebin.com/raw/RV8wks5K"
+# 输出文件名
+$outFileName = "out3.txt"
+# 临时本地文件
+$tempFile1 = "$PSScriptRoot\temp_src1.txt"
+$tempFile2 = "$PSScriptRoot\temp_src2.txt"
+$tempFile3 = "$PSScriptRoot\temp_src3.txt"
+$tempFile4 = "$PSScriptRoot\temp_src4.txt"
 # 下载重试设置
 $retryMax = 3
 $retryWaitSec = 8
@@ -47,11 +48,15 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 [System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 #endregion
-#region 清理旧临时文件与输出文件
-if(Test-Path $outFile) { Remove-Item $outFile -Force -ErrorAction SilentlyContinue }
-Write-Host " 已清理历史文件`n"
+#region 清理旧临时文件
+$tempList = @($tempFile1,$tempFile2,$tempFile3,$tempFile4)
+foreach($f in $tempList){
+    if (Test-Path $f) { Remove-Item $f -Force -ErrorAction SilentlyContinue }
+}
+if (Test-Path $outFileName) { Remove-Item $outFileName -Force -ErrorAction SilentlyContinue }
+Write-Host " 已清理历史临时文件`n"
 #endregion
-#region 带重试下载函数
+#region 带重试的下载函数
 function Invoke-DownloadWithRetry {
     param(
         [string]$DownloadUrl,
@@ -81,107 +86,93 @@ function Invoke-DownloadWithRetry {
     return $false
 }
 #endregion
-#region 下载全部源
-$tmpList = @()
-foreach($url in $sourceUrls){
-    $tmpPath = [System.IO.Path]::GetTempFileName()
-    $tmpList += $tmpPath
-    $ok = Invoke-DownloadWithRetry -DownloadUrl $url -OutPath $tmpPath -MaxRetry $retryMax -WaitSeconds $retryWaitSec
-    if(-not $ok){
+#region 下载4个远程txt
+$urlList = @(
+    @{Url=$urlTxt1; Local=$tempFile1},
+    @{Url=$urlTxt2; Local=$tempFile2},
+    @{Url=$urlTxt3; Local=$tempFile3},
+    @{Url=$urlTxt4; Local=$tempFile4}
+)
+foreach($item in $urlList){
+    $downloadOk = Invoke-DownloadWithRetry -DownloadUrl $item.Url -OutPath $item.Local -MaxRetry $retryMax -WaitSeconds $retryWaitSec
+    if(-not $downloadOk) {
         exit 1
     }
 }
 #endregion
-#region TXT源解析：$groupOrder数组记录分组首次出现顺序
-Write-Host " 开始解析txt源，黑名单过滤+清洗表情+分组重命名+同名分组合并`n"
-$entryHash = @{} #全局去重 key=频道url
-$groupBucket = @{} #分组存储：key=最终分组名，value=频道url数组
-$groupOrder = @()  #【核心：独立数组记录分组首次出现顺序】
+#region 合并txt，黑名单分组过滤 + 分组标题重命名 + 同名分组合并归集
+Write-Host " 开始合并4个直播源txt，黑名单分组过滤开启，分组重命名已启用，同名分组合并..."
+$groupBucket = @{}       # key=分组标题，value=频道数组
+$groupOrder = @()        # 记录分组首次出现顺序
+$channelHash = @{}       # 全局频道去重
 $totalChannel = 0
 
-for($i=0;$i -lt $tmpList.Count;$i++){
-    $tempPath = $tmpList[$i]
+for($i=0;$i -lt $tempList.Count;$i++){
+    $tempPath = $tempList[$i]
     $srcIndex = $i + 1
     $rawLines = Get-Content $tempPath -Encoding UTF8
     $skipThisGroup = $false
-    $extinfLine = ""
-    $currentGroupName = ""
+    $currentGroup = $null
 
     foreach($line in $rawLines){
         $lineTrim = $line.Trim()
         if([string]::IsNullOrWhiteSpace($lineTrim)){continue}
 
-        # 匹配EXTINF提取group-title
-        if($lineTrim -match '^#EXTINF:(.+?)group-title="([^"]+)",(.*)$'){
-            $fullExtInfRaw = $lineTrim
-            $groupRaw = $matches[2]
-            $chNameRaw = $matches[3]
-
-            # 清洗表情、零宽字符
-            $groupClean = [regex]::Replace($groupRaw, '[\u2600-\u26FF]|[\u2700-\u27BF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|\u200B|\u200C|\u200D|\uFEFF', '')
-            $groupClean = $groupClean.Trim()
-
-            # 分组重命名
-            $finalGroupName = $groupClean
-            if($renameGroupMap.ContainsKey($groupClean)){
-                $finalGroupName = $renameGroupMap[$groupClean]
-                Write-Host " 源$srcIndex：分组重命名【$groupClean】→【$finalGroupName】"
-            }
-
-            $extinfLine = $fullExtInfRaw
-            $currentGroupName = $finalGroupName
-
-            # 黑名单判断
-            if($blackGroupList -contains $groupClean){
-                $skipThisGroup = $true
-                Write-Host " 源$srcIndex：命中黑名单分组【$groupClean】，丢弃该分组全部频道"
-            }else{
-                $skipThisGroup = $false
-                # 首次出现分组加入groupOrder
-                if(-not $groupBucket.ContainsKey($finalGroupName)){
-                    $groupBucket[$finalGroupName] = @()
-                    $groupOrder += $finalGroupName
-                }
-            }
+        # 命中黑名单分组标题
+        if($blackGroupList -contains $lineTrim){
+            $skipThisGroup = $true
+            Write-Host " 源$srcIndex：命中黑名单分组【$lineTrim】，丢弃该分组全部频道"
             continue
         }
 
-        # 频道URL行
-        if(-not $lineTrim.StartsWith("#")){
-            if($skipThisGroup){
-                $extinfLine = ""
-                continue
+        # 识别分组标题行 xxx,#genre#
+        if($lineTrim -match ',#genre#$'){
+            $skipThisGroup = $false
+            $groupTitle = $lineTrim
+            # 分组标题重命名
+            if($renameGroupMap.ContainsKey($groupTitle)){
+                $newTitle = $renameGroupMap[$groupTitle]
+                Write-Host " 源$srcIndex：分组重命名【$groupTitle】 → 【$newTitle】"
+                $groupTitle = $newTitle
             }
-            if(-not [string]::IsNullOrWhiteSpace($extinfLine) -and -not [string]::IsNullOrWhiteSpace($lineTrim)){
-                $urlClean = [regex]::Replace($lineTrim, '[\u2600-\u26FF]|[\u2700-\u27BF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|\u200B|\u200C|\u200D|\uFEFF', '')
-                if(-not $entryHash.ContainsKey($urlClean)){
-                    $entryHash[$urlClean] = $true
-                    $groupBucket[$currentGroupName] += $urlClean
-                    $totalChannel++
-                }
+            # 首次出现的分组，记录顺序
+            if(-not $groupBucket.ContainsKey($groupTitle)){
+                $groupBucket[$groupTitle] = @()
+                $groupOrder += $groupTitle
             }
-            $extinfLine = ""
+            $currentGroup = $groupTitle
+            continue
+        }
+
+        if($skipThisGroup){
+            continue
+        }
+
+        # 普通频道行，整行去重加入当前分组
+        if(-not $channelHash.ContainsKey($lineTrim)){
+            $channelHash[$lineTrim] = $true
+            $groupBucket[$currentGroup] += $lineTrim
+            $totalChannel++
         }
     }
 }
+
+# 组装输出文本：按分组首次出现顺序，分组标题+频道列表
+$allLines = @()
+foreach($gName in $groupOrder){
+    $allLines += $gName
+    $allLines += $groupBucket[$gName]
+}
+
+# 输出合并文件 UTF8，TVbox中文不乱码
+$allLines | Out-File $outFileName -Encoding UTF8
+Write-Host " 合并完成，输出文件：$outFileName"
+Write-Host " 有效频道数量：$totalChannel`n"
 #endregion
 
-#region 组装txt输出，严格按照$groupOrder顺序输出
-$txtEntries = @()
-foreach($gName in $groupOrder) {
-    $items = $groupBucket[$gName]
-    $txtEntries += "【$gName】"
-    $txtEntries += $items
-    $txtEntries += ""
+# 清理临时文件
+foreach($f in $tempList){
+    if (Test-Path $f) { Remove-Item $f -Force -ErrorAction SilentlyContinue }
 }
-$txtEntries | Out-File $outFile -Encoding UTF8
-Write-Host "`n 解析完成，输出文件：$outFile"
-Write-Host " 有效频道总数：$totalChannel`n"
-#endregion
-
-#region 清理临时文件
-foreach($tmp in $tmpList){
-    if(Test-Path $tmp){Remove-Item $tmp -Force -ErrorAction SilentlyContinue}
-}
-Write-Host " 临时文件清理完毕"
-Write-Host "==== script3 执行完成 ====" -ForegroundColor Green
+Write-Host "`n 已清理全部本地临时文件"
+Write-Host "`n==== 全部任务执行完毕 ====" -ForegroundColor Green
