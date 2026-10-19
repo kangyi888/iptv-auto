@@ -36,7 +36,7 @@ $renameMap = @{
 # ========================================
 
 # 字典：key=分组名，value=完整EXTINF+频道行数组，同名分组自动合并
-$groupDict = @{}
+$groupDict = [ordered]@{}
 
 foreach($url in $sourceUrls){
     Write-Host "正在下载源（重试1/3）: $url"
