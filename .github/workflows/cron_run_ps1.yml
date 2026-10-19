@@ -81,13 +81,6 @@ jobs:
             .\scripts\script3.ps1
             Write-Host "==== script3.ps1 finished ===="
 
-        - name: Check output file size
-        if: success() || failure()
-        run: |
-          Write-Host "===== 检查输出文件大小 ====="
-          Get-ChildItem output\*.m3u | Select-Object Name,Length
-        shell: pwsh
-
       # ========== 汇总日志：控制台打印 + 写入 output/run_summary.txt ==========
       - name: Print & Save execution summary
         if: success() || failure()
