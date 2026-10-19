@@ -1,10 +1,9 @@
 name: IPTV Auto Update
 on:
   schedule:
-    # 北京时间 05:00 → UTC 前一天21:00
-    - cron: '0 21 * * *'
-    # 北京时间 16:00 → UTC 08:00
-    - cron: '0 8 * * *'
+    - cron: '0 21 * * *'  # UTC 21:00 = 北京时间次日 05:00
+    - cron: '0 2 * * *'   # UTC 02:00 = 北京时间 10:00
+    - cron: '0 8 * * *'   # UTC 08:00 = 北京时间 16:00
   workflow_dispatch: # 支持手动触发
 jobs:
   run-iptv-scripts:
