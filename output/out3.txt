@@ -572,6 +572,11 @@ TVBS新聞台,http://74.91.26.218:82/live/tvbsxw.m3u8
 博斯高球2,http://74.91.26.218:82/live/bsgq2.m3u8
 博斯魅力,http://74.91.26.218:82/live/bsml.m3u8
 博斯網球,http://74.91.26.218:82/live/bswq.m3u8
+寰宇新闻,http://36.235.101.41:8022/udp/230.1.2.252:11111
+寰宇新闻,http://36.235.101.41:8022/udp/224.1.4.51:11111
+广东珠江,http://nn.7x9d.cn/91tv1.php?e=gdzj&line=0
+广东珠江,http://nn.7x9d.cn/91tv1.php?e=gdzj&line=1
+广东珠江,http://nn.7x9d.cn/91tv1.php?e=gdzj&line=2
 
 
 rrs03-央视频道,#genre#
@@ -2187,10 +2192,6 @@ NOW英超3,http://109.61.81.147:1935/cdn7/767/mpegts?token=1d8c18a3d377f5418d250
 咪咕视频易视6,http://36.155.98.21/gslbserv.itv.cmvideo.cn:80/1000000006000270006/1.m3u8?channel-id=ystenlive&Contentid=1000000006000270006&livemode=1&stbId=790995DFA9F142B8B114EDA03A996C61
 咪咕3K咪视通,http://gslbserv.itv.cmvideo.cn/3000000010000015686/1.m3u8?channel-id=FifastbLive&Contentid=3000000010000015686&livemode=1&stbId=790995DFA9F142B8B114EDA03A996C61
 咪咕4K咪视通,http://gslbserv.itv.cmvideo.cn/3000000010000005180/1.m3u8?channel-id=FifastbLive&Contentid=3000000010000005180&livemode=1&stbId=790995DFA9F142B8B114EDA03A996C61
-
-
-四季测试,#genre#
-極限電影,http://77.90.15.78/YC20161015.php?id=17
 
 
 香港极速,#genre#
