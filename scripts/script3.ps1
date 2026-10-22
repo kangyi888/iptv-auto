@@ -1,139 +1,184 @@
 <#
-script3.ps1
-功能：TVbox #genre# 多txt源下载 + 分组重命名 + 同名分组合并 + 黑名单过滤 + 频道去重
-全部源为 xxx,#genre# 格式，不解析M3U
-【重点】分组内频道保留原始读取顺序，后续源同分组频道追加到尾部，不再乱序
+脚本功能：
+1. 多远程txt源下载
+2. 黑名单分组过滤
+3. 清洗emoji、零宽隐形字符
+4. 分组重命名映射
+5. 同分组频道追加至尾部、全局频道去重
+6. 分组顺序按照第一次出现顺序
+7. 修复Tls13枚举null报错、锁定输出绝对路径，防止写跑偏
 #>
-# 极简SSL 忽略证书，适配PowerShell7
-[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::Tls12
-[System.Net.ServicePointManager]::ServerCertificateValidationCallback = { $true }
-# ========== 配置区（在这里修改）==========
-# 基于脚本自身目录，固定输出路径
-$scriptRoot = $PSScriptRoot
-$outputDir  = Join-Path $scriptRoot "output"
-$outFile    = Join-Path $outputDir "out3.txt"
-
-# 4个远程txt源地址（全部TVbox #genre#格式）
-$sourceUrls = @(
-    "https://gitee.com//hw2837/iptv/raw/master/iptv",
-    "https://gitee.com/mycaijunhao/123/raw/master/sttv",
-    "https://gitee.com/zwssina/yunduanyuan/raw/master/SB",
-    "https://pastebin.com/raw/RV8wks5K"
+# ===================== 【配置区，按需自行修改】=====================
+# 黑名单分组名称
+$blackGroupList = @(
+    "更新时间"
 )
-# 【黑名单分组：包含这些关键词的分组直接丢弃】
-$blackListGroup = @(
-    "测试区_7890",
-    "幼儿园",
-    "备用1",
-    "垃圾频道1"
-)
-# 【分组重命名映射：旧名称 -> 新名称】
-$renameMap = @{
+# 分组重命名映射：清洗后旧分组名 => 新分组名
+$renameGroupMap = @{
     "地方台" = "地方频道"
 }
-# ========================================
+# TXT直播源地址列表
+$sourceUrls = @(
+    "https://gitee.com/hw2837/iptv/raw/master/iptv",
+    "https://gitee.com/mycaijunhao/123/raw/master/sttv",
+    "https://gitee.com/zwssina/yuandanyuan/raw/master/SB",
+    "https://pastebin.com/raw/RV8Wk5SK"
+)
+# 下载重试次数、等待秒数
+$retryMax = 3
+$retryWaitSec = 8
+# ====================================================================
 
-# 自动创建output目录
-if(-not (Test-Path $outputDir)){
-    New-Item -ItemType Directory -Path $outputDir -Force | Out-Null
+# 锁定脚本目录、仓库根目录，防止Action工作目录偏移
+$ScriptRoot = $PSScriptRoot
+$RepoRoot = Split-Path $ScriptRoot -Parent
+$outFile = Join-Path $RepoRoot "output\out3.txt"
+
+#region HTTPS证书信任（兼容没有Tls13枚举的pwsh环境，修复null转换报错）
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+if ([Enum]::IsDefined([Net.SecurityProtocolType], "Tls13")) {
+    [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls13
 }
-Write-Host "✅ 输出文件绝对路径：$outFile"
+[System.Net.ServicePointManager]::ServerCertificateValidationCallback = { $true }
+#endregion
 
-# 存储分组信息：key=分组名，value=对象包含去重哈希 + 有序频道数组
-$groupDict = @{}
-# 记录分组首次出现顺序
-$groupOrder = @()
+#region 清理历史输出文件
+if(Test-Path $outFile) {
+    Remove-Item $outFile -Force -ErrorAction SilentlyContinue
+}
+Write-Host " 已清理历史输出文件`n"
+Write-Host "✅ 输出文件绝对路径: $outFile`n"
+#endregion
 
-foreach($url in $sourceUrls){
-    Write-Host "正在下载源：$url"
-    $retryCount = 3
-    $success = $false
-    for($i=1; $i -le $retryCount; $i++){
+#region 带重试下载函数
+function Invoke-DownloadWithRetry {
+    param(
+        [string]$DownloadUrl,
+        [string]$OutPath,
+        [int]$MaxRetry,
+        [int]$WaitSeconds
+    )
+    $tryCount = 0
+    while($tryCount -lt $MaxRetry) {
         try{
-            $resp = Invoke-WebRequest -Uri $url -UseBasicParsing -TimeoutSec 20
-            $rawContent = $resp.Content
-            Write-Host "下载文件大小: $($rawContent.Length) 字节"
-            if([string]::IsNullOrWhiteSpace($rawContent)){
-                throw "返回空内容"
-            }
-            $lines = $rawContent -split "`r?`n"
-            $currentGroup = $null
-            $skipCurrentGroup = $false
-            foreach($line in $lines){
-                $line = $line.Trim()
-                if([string]::IsNullOrWhiteSpace($line)){continue}
-                # 识别TVbox分组行：xxx,#genre#
-                if($line -match '^(.*),#genre#$'){
-                    $rawGName = $matches[1]
-                    # 黑名单判断
-                    $skipCurrentGroup = $false
-                    foreach($bw in $blackListGroup){
-                        if($rawGName -match $bw){
-                            $skipCurrentGroup = $true
-                            break
-                        }
-                    }
-                    if($skipCurrentGroup){
-                        $currentGroup = $null
-                        continue
-                    }
-                    # 分组重命名
-                    if($renameMap.ContainsKey($rawGName)){
-                        $currentGroup = $renameMap[$rawGName]
-                    }else{
-                        $currentGroup = $rawGName
-                    }
-                    # 首次出现该分组，初始化；分组已存在直接复用，频道追加至数组尾部
-                    if(-not $groupDict.ContainsKey($currentGroup)){
-                        $groupDict[$currentGroup] = [PSCustomObject]@{
-                            seen  = @{}
-                            items = @()
-                        }
-                        $groupOrder += $currentGroup
-                    }
-                    continue
-                }
-                # 频道行，当前分组有效且不处于黑名单跳过状态
-                if($currentGroup -and (-not $skipCurrentGroup)){
-                    $gData = $groupDict[$currentGroup]
-                    # 只有第一次见到这条频道行，才加入有序数组
-                    if(-not $gData.seen.ContainsKey($line)){
-                        $gData.seen[$line] = $true
-                        $gData.items += $line
-                    }
-                }
-            }
-            $success = $true
-            Write-Host "源解析完成：$url"
-            break
+            $tryCount++
+            Write-Host " 正在下载源（尝试 $tryCount/$MaxRetry）：$DownloadUrl"
+            Invoke-WebRequest -Uri $DownloadUrl -OutFile $OutPath -TimeoutSec 30
+            Write-Host " ✅ 下载成功`n"
+            return $true
         }
         catch{
-            Write-Host "下载失败，第$i次重试：$($_.Exception.Message)"
-            Start-Sleep -Seconds 3
+            Write-Host " ⚠️ 下载尝试 $tryCount 失败：$($_.Exception.Message)" -ForegroundColor DarkYellow
+            if($tryCount -ge $MaxRetry) {
+                Write-Host " ❌ 已达到最大重试次数，该源下载终止！" -ForegroundColor Red
+                return $false
+            }
+            Write-Host " 等待 ${WaitSeconds}s 后重试..."
+            Start-Sleep -Seconds $WaitSeconds
         }
     }
-    if(-not $success){
-        Write-Host "源下载最终失败：$url"
+    return $false
+}
+#endregion
+
+#region 批量下载所有源到临时文件
+$tmpList = @()
+foreach($url in $sourceUrls){
+    $tmpPath = [System.IO.Path]::GetTempFileName()
+    $tmpList += $tmpPath
+    $ok = Invoke-DownloadWithRetry -DownloadUrl $url -OutPath $tmpPath -MaxRetry $retryMax -WaitSeconds $retryWaitSec
+    if(-not $ok){
+        exit 1
     }
 }
+#endregion
 
-# ========== 一次性组装全部文本，只写入一次（重点修复！） ==========
-$outputBuilder = [System.Text.StringBuilder]::new()
-foreach($gName in $groupOrder){
-    $channelList = $groupDict[$gName].items
-    Write-Host "输出分组：$gName，频道数量：$($channelList.Count)"
-    [void]$outputBuilder.AppendLine("$gName,#genre#")
-    [void]$outputBuilder.Append($channelList -join "`r`n")
-    [void]$outputBuilder.AppendLine("`r`n")
+#region TXT源解析、清洗、分组合并、全局去重
+Write-Host " 开始解析TXT源，黑名单过滤+表情清洗+分组重命名+同名分组合并，同分组频道追加到尾部`n"
+$entryHash = @{}       # 全局去重key：频道名|url
+$groupBucket = @{}     # 分组容器：key=最终分组名，value=频道行数组
+$groupOrder = @()      # 记录分组首次出现顺序
+$totalChannel = 0
+
+for($i=0;$i -lt $tmpList.Count;$i++){
+    $tempPath = $tmpList[$i]
+    $srcIndex = $i + 1
+    $rawLines = Get-Content $tempPath -Encoding UTF8
+    $currentGroupName = $null
+
+    foreach($line in $rawLines){
+        $lineTrim = $line.Trim()
+        if([string]::IsNullOrWhiteSpace($lineTrim)){continue}
+
+        # 匹配分组标记行：xxx,#genre#
+        if($lineTrim -match '^(.*?),#genre#$'){
+            $groupRaw = $matches[1]
+            # 清洗emoji、零宽字符、BOM
+            $groupClean = [regex]::Replace($groupRaw, '[\u2600-\u26FF]|[\u2700-\u27BF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|\u200B|\u200C|\u200D|\uFEFF', '')
+            $groupClean = $groupClean.Trim()
+
+            # 黑名单跳过
+            if($blackGroupList -contains $groupClean){
+                $currentGroupName = $null
+                Write-Host " 源$srcIndex：命中黑名单分组【$groupClean】，跳过"
+                continue
+            }
+            # 分组重命名
+            $finalGroupName = $groupClean
+            if($renameGroupMap.ContainsKey($groupClean)){
+                $finalGroupName = $renameGroupMap[$groupClean]
+            }
+            $currentGroupName = $finalGroupName
+
+            # 新分组加入顺序列表
+            if(-not $groupBucket.ContainsKey($finalGroupName)){
+                $groupBucket[$finalGroupName] = @()
+                $groupOrder += $finalGroupName
+            }
+            continue
+        }
+
+        # 匹配频道行：频道名称,url
+        if($currentGroupName -and $lineTrim -match '^(.*?),(.+)$'){
+            $chRaw = $matches[1]
+            $urlRaw = $matches[2]
+            $chClean = [regex]::Replace($chRaw, '[\u2600-\u26FF]|[\u2700-\u27BF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|\u200B|\u200C|\u200D|\uFEFF', '')
+            $chClean = $chClean.Trim()
+            $urlClean = $urlRaw.Trim()
+
+            $uniqueKey = "$chClean|$urlClean"
+            if(-not $entryHash.ContainsKey($uniqueKey)){
+                $entryHash[$uniqueKey] = $true
+                $groupBucket[$currentGroupName] += "$chClean,$urlClean"
+                $totalChannel++
+            }
+        }
+    }
 }
+#endregion
 
-# 一次性写入 UTF8 无BOM
-$utf8NoBom = New-Object System.Text.UTF8Encoding $false
-[System.IO.File]::WriteAllText($outFile, $outputBuilder.ToString(), $utf8NoBom)
-
-# ========== 输出文件校验，防止空txt ==========
-$finalFile = Get-Item $outFile
-if($finalFile.Length -lt 100){
-    throw "输出文件过小($($finalFile.Length)字节)，生成空txt，终止任务"
+#region 一次性组装并写入文件（StringBuilder，避免多次IO句柄问题）
+$sb = [System.Text.StringBuilder]::new()
+foreach($gName in $groupOrder) {
+    $sb.AppendLine("$gName,#genre#") | Out-Null
+    foreach($line in $groupBucket[$gName]){
+        $sb.AppendLine($line) | Out-Null
+    }
 }
-Write-Host "脚本执行完成，输出文件大小：$($finalFile.Length) 字节"
+[System.IO.File]::WriteAllText($outFile, $sb.ToString(), [System.Text.Encoding]::UTF8)
+
+# 打印MD5哈希，用于日志判断文件是否真实改动
+$fileMd5 = (Get-FileHash $outFile -Algorithm MD5).Hash
+Write-Host "`n✅ 脚本执行完成，输出文件大小：$((Get-Item $outFile).Length) 字节"
+Write-Host "📌 out3.txt MD5: $fileMd5"
+#endregion
+
+#region 清理临时文件
+foreach($tmp in $tmpList){
+    if(Test-Path $tmp){
+        Remove-Item $tmp -Force -ErrorAction SilentlyContinue
+    }
+}
+Write-Host " 临时文件清理完毕"
+Write-Host "==== script3.ps1 执行完成 ====" -ForegroundColor Green
+#endregion
