@@ -8,7 +8,11 @@ script3.ps1
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::Tls12
 [System.Net.ServicePointManager]::ServerCertificateValidationCallback = { $true }
 # ========== 配置区（在这里修改）==========
-$outFile = "output\out3.txt"
+# 基于脚本自身目录，固定输出路径
+$scriptRoot = $PSScriptRoot
+$outputDir  = Join-Path $scriptRoot "output"
+$outFile    = Join-Path $outputDir "out3.txt"
+
 # 4个远程txt源地址（全部TVbox #genre#格式）
 $sourceUrls = @(
     "https://gitee.com//hw2837/iptv/raw/master/iptv",
@@ -28,10 +32,18 @@ $renameMap = @{
     "地方台" = "地方频道"
 }
 # ========================================
+
+# 自动创建output目录
+if(-not (Test-Path $outputDir)){
+    New-Item -ItemType Directory -Path $outputDir -Force | Out-Null
+}
+Write-Host "✅ 输出文件绝对路径：$outFile"
+
 # 存储分组信息：key=分组名，value=对象包含去重哈希 + 有序频道数组
 $groupDict = @{}
 # 记录分组首次出现顺序
 $groupOrder = @()
+
 foreach($url in $sourceUrls){
     Write-Host "正在下载源：$url"
     $retryCount = 3
@@ -104,20 +116,21 @@ foreach($url in $sourceUrls){
         Write-Host "源下载最终失败：$url"
     }
 }
-# 清空旧文件
-if(Test-Path $outFile){
-    Remove-Item $outFile -Force
-}
-# 按照分组首次出现顺序输出；分组内部频道保持读取顺序
+
+# ========== 一次性组装全部文本，只写入一次（重点修复！） ==========
+$outputBuilder = [System.Text.StringBuilder]::new()
 foreach($gName in $groupOrder){
     $channelList = $groupDict[$gName].items
     Write-Host "输出分组：$gName，频道数量：$($channelList.Count)"
-    # 输出TVbox标准分组标记
-    "$gName,#genre#" | Out-File $outFile -Append -Encoding UTF8
-    # 输出频道列表（保持原始顺序）
-    $channelList -join "`r`n" | Out-File $outFile -Append -Encoding UTF8
-    "`r`n" | Out-File $outFile -Append -Encoding UTF8
+    [void]$outputBuilder.AppendLine("$gName,#genre#")
+    [void]$outputBuilder.Append($channelList -join "`r`n")
+    [void]$outputBuilder.AppendLine("`r`n")
 }
+
+# 一次性写入 UTF8 无BOM
+$utf8NoBom = New-Object System.Text.UTF8Encoding $false
+[System.IO.File]::WriteAllText($outFile, $outputBuilder.ToString(), $utf8NoBom)
+
 # ========== 输出文件校验，防止空txt ==========
 $finalFile = Get-Item $outFile
 if($finalFile.Length -lt 100){
