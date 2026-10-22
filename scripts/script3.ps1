@@ -23,7 +23,7 @@ $sourceUrls = @(
     "https://gitee.com/hw2837/iptv/raw/master/iptv",
     "https://gitee.com/mycaijunhao/123/raw/master/sttv",
     "https://gitee.com/zwssina/yunduanyuan/raw/master/SB",
-    "https://pastebin.com/raw/rd6x9Mfv"
+    "https://pastebin.com/raw/RV8wks5K"
 )
 # 下载重试次数、等待秒数
 $retryMax = 3
