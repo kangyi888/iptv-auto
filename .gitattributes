@@ -1,0 +1,3 @@
+output/*.txt text eol=lf
+output/*.m3u text eol=lf
+*.ps1 text eol=lf
