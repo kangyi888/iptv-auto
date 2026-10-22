@@ -31,19 +31,9 @@ $outFile = "output\out2.m3u"
 $retryMax = 3
 $retryWaitSec = 8
 # ====================================================================
-#region HTTPS证书信任
-Add-Type @"
-using System.Net;
-using System.Net.Security;
-using System.Security.Cryptography.X509Certificates;
-public class TrustAllCertsPolicy : ICertificatePolicy {
-    public bool CheckValidationResult(ServicePoint srvPoint, X509Certificate certificate, WebRequest request, int certificateProblem) {
-        return true;
-    }
-}
-"@
-[System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
-[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
+#region HTTPS证书信任（适配PowerShell7 / .NET Core，修复CS0246报错）
+[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::Tls12 -bor [Net.ServicePointManager]::Tls13
+[System.Net.ServicePointManager]::ServerCertificateValidationCallback = { $true }
 #endregion
 #region 清理旧临时文件与输出文件
 if(Test-Path $outFile) { Remove-Item $outFile -Force -ErrorAction SilentlyContinue }
