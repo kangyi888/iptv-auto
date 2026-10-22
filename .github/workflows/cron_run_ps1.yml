@@ -5,6 +5,7 @@ on:
     - cron: '0 2 * * *'   # UTC 02:00 = 北京时间 10:00
     - cron: '0 8 * * *'   # UTC 08:00 = 北京时间 16:00
   workflow_dispatch: # 支持手动触发
+
 jobs:
   run-iptv-scripts:
     runs-on: windows-latest
@@ -21,7 +22,7 @@ jobs:
           max_attempts: 2
           shell: pwsh
           command: |
-            .\iptv-auto\scripts\script1.ps1
+            .\scripts\script1.ps1
 
       - name: Run script2.ps1
         uses: nick-fields/retry@v3
@@ -30,7 +31,7 @@ jobs:
           max_attempts: 2
           shell: pwsh
           command: |
-            .\iptv-auto\scripts\script2.ps1
+            .\scripts\script2.ps1
 
       - name: Run script3.ps1
         uses: nick-fields/retry@v3
@@ -39,7 +40,7 @@ jobs:
           max_attempts: 2
           shell: pwsh
           command: |
-            .\iptv-auto\scripts\script3.ps1
+            .\scripts\script3.ps1
 
       - name: Check output file list
         run: |
@@ -51,7 +52,6 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          # 清空output目录所有git缓存，不再写死文件名
           git rm --cached output/* -r -f 2>&1 | Out-Null
           git add output/ --force
           git status
