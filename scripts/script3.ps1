@@ -21,7 +21,7 @@ $renameGroupMap = @{
 $sourceUrls = @(
     "https://gitee.com/hw2837/iptv/raw/master/iptv",
     "https://gitee.com/mycaijunhao/123/raw/master/sttv",
-    "https://gitee.com/zwssina/yuandanyuan/raw/master/SB",
+    "https://gitee.com/zwssina/yunduanyuan/raw/master/SB",
     "https://pastebin.com/raw/RV8Wk5SK"
 )
 # 下载重试次数、等待秒数
