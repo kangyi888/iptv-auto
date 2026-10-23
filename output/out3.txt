@@ -1469,9 +1469,11 @@ TVB星河1080,http://cc.123.rr.kg/163189/tvbxh
 TVBS新闻,https://d2jc41c1shgcol.cloudfront.net/live/tvbsnewsqt/playlist.m3u8
 寰宇新闻,http://128.14.206.166/pull-f5.flive.douyincdn.com/live/hyxw.flv
 寰宇新闻,http://159.75.4.149:99/清风/iptv.php?token=fa3b99bb95bdd339eebec0e0cb4904d6&ch=c37a8a6fedcfb3a4
+寰宇新聞(爬虫),http://hinet.magicluweibo1.hz.cz:11601/php/mmm/all_mqitv.php?host=61.63.19.241:1888&proxy=true&id=live1222
 disconery探索,https://p-drm.aliiptv.com/live/Discovery.m3u8?verify=1790056187-L7qo-VC4FaVADdbd2gWY6ZysxHyv-mgIAPgQ02KM37U
 动物星球,https://play-drm.aliiptv.com/live/dwxq.m3u8?verify=1790056236-RsMsLXTXVKL1APEKLZOCzUAT8j4krAAF16eEtK7euLg
 動物星球,https://play-drm.aliiptv.com/live/dwxq.m3u8
+動物星球(爬虫),http://hinet.magicluweibo1.hz.cz:11601/php/mmm/all_mqitv.php?host=61.63.19.241:1888&proxy=true&id=live1004
 BBC纪录,https://play-drm.aliiptv.com/live/BBCLifestyle.m3u8?verify=1790056258-937Ogv46aANf4VYzcc58e28264Q0hXi7qWICUV5W0VU
 法国FTV,https://1722840738.rsc.cdn77.org/manifest.m3u8
 法国时尚,https://ftv1.b-cdn.net/bfdbb576-83f7-11f0-9f89-0200170e3e04_1000028043_HLS/manifest.m3u8
