@@ -15,6 +15,11 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: 配置Git换行规则（临时，防止ps1被标记脏修改）
+        run: |
+          git config core.autocrlf false
+        shell: pwsh
+
       - name: Run script1.ps1
         uses: nick-fields/retry@v3
         with:
@@ -52,13 +57,13 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          # 只添加3个输出文件
+          # 只添加我们的输出文件
           git add output/out1.m3u output/out2.m3u output/out3.txt
           git status
-          # 检查暂存区是否有变更
+          # 判断有没有变更，无变更跳过提交
           git diff --cached --quiet
           if ($LASTEXITCODE -eq 0) {
-            Write-Host "✅ 所有输出文件和上次内容一致，无变更，跳过提交"
+            Write-Host "✅ 输出文件无内容变更，跳过提交"
             exit 0
           }
           git commit -m "Auto update IPTV output files [GitHub Actions]"
