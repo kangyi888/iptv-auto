@@ -31,7 +31,7 @@ $renameGroupMap = @{
 $sourceUrls = @(
     "https://gitee.com/lwr851/live/raw/master/iptv.m3u",
     "https://gh-proxy.org/https://raw.githubusercontent.com/kangyi888/IPTV/refs/heads/main/live.m3u",
-    "https://raw.githubusercontent.com/jn950/live/main/tv/holive.m3u"
+    "http://139.224.44.53:1234"
 )
 $outFile = "output\out1.m3u"
 # 下载重试设置
