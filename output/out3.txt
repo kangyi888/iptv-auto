@@ -466,9 +466,9 @@ CETV4HD,http://rrs01.hw.gmcc.net:8088/PLTV/81/224/3221226724/1.m3u8$rrs01
 广州综合频道,https://tencentplaybusiness.gztv.com/live/zonghes.m3u8
 广州新闻频道,https://tencentplaybusiness.gztv.com/live/xinwen.m3u8
 广州南国都市,https://tencentplaybusiness.gztv.com/live/nanguodushi.m3u8
-广东新闻,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=gdxw#http://bztv.tvbus.cc:8081/cdnlive/gdxw.m3u8
-广东体育,https://2.fast.hidns.vip/163189/gdty#http://63.141.230.178:82/gslb/zbdq5.m3u8?id=gdty#http://bztv.tvbus.cc:8081/cdnlive/gdty.m3u8
-广东珠江,https://gx.484947.xyz/PLTV/77777777/224/3221225717/index.m3u8?servicetype=1&&IASHttpSessionId=RR778520250111113355399717&ispcode=1108#https://2.fast.hidns.vip/163189/gdzj#http://63.141.230.178:82/gslb/zbdq5.m3u8?id=gdzj#http://bztv.tvbus.cc:8081/cdnlive/gdzj.m3u8
+广东新闻,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=gdxw#http://bztv.tvbus.cc:8081/cdnlive/gdxw.m3u8#http://38.75.136.137:98/gslb/dsdqpub/gdxw.m3u8?auth=testpub
+广东体育,https://2.fast.hidns.vip/163189/gdty#http://63.141.230.178:82/gslb/zbdq5.m3u8?id=gdty#http://bztv.tvbus.cc:8081/cdnlive/gdty.m3u8#http://38.75.136.137:98/gslb/dsdqpub/gdty.m3u8?auth=testpub
+广东珠江,https://gx.484947.xyz/PLTV/77777777/224/3221225717/index.m3u8?servicetype=1&&IASHttpSessionId=RR778520250111113355399717&ispcode=1108#https://2.fast.hidns.vip/163189/gdzj#http://63.141.230.178:82/gslb/zbdq5.m3u8?id=gdzj#http://bztv.tvbus.cc:8081/cdnlive/gdzj.m3u8#http://38.75.136.137:98/gslb/dsdqpub/gdzj.m3u8?auth=testpub
 大湾区卫视,https://gx.484947.xyz/PLTV/77777777/224/3221225748/index.m3u8?servicetype=1&&IASHttpSessionId=RR778520250111113355399717&ispcode=1108
 五星体育,https://cdn15.163189.xyz/163189/wxty
 Now新闻,https://fast.hidns.vip/163189/now#http://173.208.234.146/live/nowxw.m3u8
