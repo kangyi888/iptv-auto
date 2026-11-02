@@ -2007,15 +2007,19 @@ NOW英超3,http://109.61.81.147:1935/cdn7/767/mpegts?token=1d8c18a3d377f5418d250
 咪咕3K咪视通,http://gslbserv.itv.cmvideo.cn/3000000010000015686/1.m3u8?channel-id=FifastbLive&Contentid=3000000010000015686&livemode=1&stbId=790995DFA9F142B8B114EDA03A996C61
 咪咕4K咪视通,http://gslbserv.itv.cmvideo.cn/3000000010000005180/1.m3u8?channel-id=FifastbLive&Contentid=3000000010000005180&livemode=1&stbId=790995DFA9F142B8B114EDA03A996C61
 香港极速,#genre#
+TVB翡翠台,http://159.75.4.149:99/qq/cs.php?id=74143b0d93151f47bcd30a949711e2b66fce5d936ac67992c196a3c9976988da&l=0&ckey=畅映TV&token=0bceb3a0e4eedb5e6bb58b2e6d616688&session=46359a208cd91017c2d5bebba02a3f9c
 翡翠台0,http://cc.123.rr.kg/163189/fct
 翡翠台,https://cdn3.indevs.in/stream/tvb/fct/
 翡翠台1,http://120.198.84.146:9901/tsfile/live/1020_1.m3u8
+TVB 无线新闻台,http://159.75.4.149:99/qq/cs.php?id=988f63eaf08891e5dd916dfb3315eb5facc2eee5c787e7f09949f4f73a61d7f4&l=0&ckey=畅映TV&token=0bceb3a0e4eedb5e6bb58b2e6d616688&session=46359a208cd91017c2d5bebba02a3f9c
 无线新闻台0,http://cc.123.rr.kg/163189/wxxw
 无线新闻台1,http://cc.123.rr.kg/163189/wxxwt
 无线新闻台2,rtmp://school.3class.cc/live/yifaTV-125
 无线新闻台3,http://128.14.206.166/pull-f5.flive.douyincdn.com/live/wxxw.flv
+TVB Plus HD,http://159.75.4.149:99/qq/cs.php?id=64e73e3992e0bf58970bee2a1a06bcc9e055fe9815affaa07ceb6c53dcdae582&l=0&ckey=畅映TV&token=0bceb3a0e4eedb5e6bb58b2e6d616688&session=46359a208cd91017c2d5bebba02a3f9c
 TVB Plus0,http://167.88.62.43:64012/0.ts
 TVB Plus,https://cdn3.indevs.in/stream/tvb/tvbp/
+TVB 明珠台,http://159.75.4.149:99/qq/cs.php?id=78e11757d6a918fa4a6f90addddd81b76fce5d936ac67992c196a3c9976988da&l=0&ckey=畅映TV&token=0bceb3a0e4eedb5e6bb58b2e6d616688&session=46359a208cd91017c2d5bebba02a3f9c
 HOY TV,https://cc.123.rr.kg/163189/hoy
 翡翠剧集台,http://cc.123.rr.kg/163189/tvbd
 TVB1,http://cc.123.rr.kg/163189/tvb1
