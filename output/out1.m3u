@@ -946,7 +946,7 @@ http://45.192.97.170:8880/play/422.m3u8
 #EXTINF:-1  tvg-name="CCTV16" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CCTV16.png"  group-title="央视频道",CCTV16
 http://45.192.97.170:8880/play/456.m3u8
 #EXTINF:-1  tvg-name="CCTV16" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CCTV16.png"  group-title="央视频道",CCTV16
-http://45.192.97.170:8880/play/3521.m3u8
+http://45.192.97.170:8880/play/4467.m3u8
 #EXTINF:-1  tvg-name="CCTV17" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CCTV17.png"  group-title="央视频道",CCTV17
 http://139.224.44.53:1234/673168256
 #EXTINF:-1  tvg-name="CCTV17" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CCTV17.png"  group-title="央视频道",CCTV17
@@ -1010,8 +1010,6 @@ http://45.192.97.170:8880/play/432.m3u8
 #EXTINF:-1  tvg-name="风云剧场" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云剧场.png"  group-title="央视频道",风云剧场
 http://45.192.97.170:8880/play/467.m3u8
 #EXTINF:-1  tvg-name="风云剧场" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云剧场.png"  group-title="央视频道",风云剧场
-http://45.192.97.170:8880/play/3527.m3u8
-#EXTINF:-1  tvg-name="风云剧场" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云剧场.png"  group-title="央视频道",风云剧场
 http://45.192.97.170:8880/play/975.m3u8
 #EXTINF:-1  tvg-name="风云剧场" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云剧场.png"  group-title="央视频道",风云剧场
 http://2.0754.eu.org/tsfile/live/1049_1.m3u8?key=txiptv&playlive=1&down=1
@@ -1022,11 +1020,13 @@ http://121.10.7.16:4000/udp/239.253.43.16:5146
 #EXTINF:-1  tvg-name="风云剧场" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云剧场.png"  group-title="央视频道",风云剧场
 http://61.145.188.90:50055/udp/239.253.43.16:5146
 #EXTINF:-1  tvg-name="风云剧场" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云剧场.png"  group-title="央视频道",风云剧场
-http://124.165.232.26:8083/rtp/226.0.2.227:9728
+http://124.165.232.26:8082/rtp/226.0.2.227:9728
 #EXTINF:-1  tvg-name="风云剧场" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云剧场.png"  group-title="央视频道",风云剧场
-http://124.165.232.26:8084/rtp/226.0.2.227:9728
+http://124.165.232.26:8085/rtp/226.0.2.227:9728
 #EXTINF:-1  tvg-name="风云剧场" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云剧场.png"  group-title="央视频道",风云剧场
 http://60.30.67.45:8834/rtp/225.1.2.174:5002
+#EXTINF:-1  tvg-name="风云剧场" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云剧场.png"  group-title="央视频道",风云剧场
+http://60.30.67.44:8834/rtp/225.1.2.174:5002
 #EXTINF:-1  tvg-name="兵器科技" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/兵器科技.png"  group-title="央视频道",兵器科技
 http://107.150.60.122/live/gfjs.m3u8
 #EXTINF:-1  tvg-name="兵器科技" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/兵器科技.png"  group-title="央视频道",兵器科技
@@ -1038,8 +1038,6 @@ http://45.192.97.170:8880/play/436.m3u8
 #EXTINF:-1  tvg-name="兵器科技" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/兵器科技.png"  group-title="央视频道",兵器科技
 http://45.192.97.170:8880/play/471.m3u8
 #EXTINF:-1  tvg-name="兵器科技" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/兵器科技.png"  group-title="央视频道",兵器科技
-http://45.192.97.170:8880/play/3534.m3u8
-#EXTINF:-1  tvg-name="兵器科技" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/兵器科技.png"  group-title="央视频道",兵器科技
 http://45.192.97.170:8880/play/967.m3u8
 #EXTINF:-1  tvg-name="兵器科技" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/兵器科技.png"  group-title="央视频道",兵器科技
 http://116.233.67.80:8899/rtp/233.18.204.178:5140
@@ -1048,9 +1046,9 @@ http://121.10.7.16:4000/udp/239.253.43.9:5146
 #EXTINF:-1  tvg-name="兵器科技" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/兵器科技.png"  group-title="央视频道",兵器科技
 http://61.145.188.90:50055/udp/239.253.43.9:5146
 #EXTINF:-1  tvg-name="兵器科技" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/兵器科技.png"  group-title="央视频道",兵器科技
-http://124.165.232.26:8083/rtp/226.0.2.223:9696
+http://124.165.232.26:8082/rtp/226.0.2.223:9696
 #EXTINF:-1  tvg-name="兵器科技" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/兵器科技.png"  group-title="央视频道",兵器科技
-http://124.165.232.26:8084/rtp/226.0.2.223:9696
+http://124.165.232.26:8085/rtp/226.0.2.223:9696
 #EXTINF:-1  tvg-name="兵器科技" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/兵器科技.png"  group-title="央视频道",兵器科技
 http://60.30.67.45:8834/rtp/225.1.2.166:5002
 #EXTINF:-1  tvg-name="兵器科技" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/兵器科技.png"  group-title="央视频道",兵器科技
@@ -1090,8 +1088,6 @@ http://45.192.97.170:8880/play/431.m3u8
 #EXTINF:-1  tvg-name="第一剧场" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/第一剧场.png"  group-title="央视频道",第一剧场
 http://45.192.97.170:8880/play/466.m3u8
 #EXTINF:-1  tvg-name="第一剧场" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/第一剧场.png"  group-title="央视频道",第一剧场
-http://45.192.97.170:8880/play/3526.m3u8
-#EXTINF:-1  tvg-name="第一剧场" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/第一剧场.png"  group-title="央视频道",第一剧场
 http://45.192.97.170:8880/play/977.m3u8
 #EXTINF:-1  tvg-name="第一剧场" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/第一剧场.png"  group-title="央视频道",第一剧场
 http://2.0754.eu.org/tsfile/live/1047_1.m3u8?key=txiptv&playlive=1&down=1
@@ -1102,9 +1098,11 @@ http://121.10.7.16:4000/udp/239.253.43.15:5146
 #EXTINF:-1  tvg-name="第一剧场" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/第一剧场.png"  group-title="央视频道",第一剧场
 http://61.145.188.90:50055/udp/239.253.43.15:5146
 #EXTINF:-1  tvg-name="第一剧场" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/第一剧场.png"  group-title="央视频道",第一剧场
-http://124.165.232.26:8083/rtp/226.0.2.221:9680
+http://124.165.232.26:8082/rtp/226.0.2.221:9680
 #EXTINF:-1  tvg-name="第一剧场" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/第一剧场.png"  group-title="央视频道",第一剧场
-http://124.165.232.26:8084/rtp/226.0.2.221:9680
+http://124.165.232.26:8085/rtp/226.0.2.221:9680
+#EXTINF:-1  tvg-name="第一剧场" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/第一剧场.png"  group-title="央视频道",第一剧场
+http://60.30.67.45:8834/rtp/225.1.2.175:5002
 #EXTINF:-1  tvg-name="央视台球" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/央视台球.png"  group-title="央视频道",央视台球
 http://107.150.60.122/live/ystq.m3u8
 #EXTINF:-1  tvg-name="央视台球" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/央视台球.png"  group-title="央视频道",央视台球
@@ -1114,8 +1112,6 @@ http://45.192.97.170:8880/play/440.m3u8
 #EXTINF:-1  tvg-name="央视台球" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/央视台球.png"  group-title="央视频道",央视台球
 http://45.192.97.170:8880/play/475.m3u8
 #EXTINF:-1  tvg-name="央视台球" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/央视台球.png"  group-title="央视频道",央视台球
-http://45.192.97.170:8880/play/3524.m3u8
-#EXTINF:-1  tvg-name="央视台球" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/央视台球.png"  group-title="央视频道",央视台球
 http://45.192.97.170:8880/play/970.m3u8
 #EXTINF:-1  tvg-name="央视台球" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/央视台球.png"  group-title="央视频道",央视台球
 http://116.233.67.80:8899/rtp/233.18.204.177:5140
@@ -1124,9 +1120,9 @@ http://121.10.7.16:4000/udp/239.253.43.11:5146
 #EXTINF:-1  tvg-name="央视台球" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/央视台球.png"  group-title="央视频道",央视台球
 http://61.145.188.90:50055/udp/239.253.43.11:5146
 #EXTINF:-1  tvg-name="央视台球" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/央视台球.png"  group-title="央视频道",央视台球
-http://124.165.232.26:8083/rtp/226.0.2.216:9640
+http://124.165.232.26:8082/rtp/226.0.2.216:9640
 #EXTINF:-1  tvg-name="央视台球" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/央视台球.png"  group-title="央视频道",央视台球
-http://124.165.232.26:8084/rtp/226.0.2.216:9640
+http://124.165.232.26:8085/rtp/226.0.2.216:9640
 #EXTINF:-1  tvg-name="央视台球" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/央视台球.png"  group-title="央视频道",央视台球
 http://60.30.67.45:8834/rtp/225.1.2.170:5002
 #EXTINF:-1  tvg-name="央视台球" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/央视台球.png"  group-title="央视频道",央视台球
@@ -1141,6 +1137,8 @@ http://120.87.19.109:80/PLTV/88888973/224/3221226611/100001000000000600000000016
 http://38.75.136.137:98/gslb/dsdqpub/ystq.m3u8?auth=testpub
 #EXTINF:-1  tvg-name="央视台球" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/央视台球.png"  group-title="央视频道",央视台球
 http://198.204.228.26/live/ystq.m3u8
+#EXTINF:-1  tvg-name="央视台球" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/央视台球.png"  group-title="央视频道",央视台球
+http://1266.kshome1266.top:8701/rtp/233.18.204.177:5140
 #EXTINF:-1  tvg-name="风云足球" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云足球.png"  group-title="央视频道",风云足球
 http://107.150.60.122/live/fyzq.m3u8
 #EXTINF:-1  tvg-name="风云足球" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云足球.png"  group-title="央视频道",风云足球
@@ -1152,8 +1150,6 @@ http://45.192.97.170:8880/play/434.m3u8
 #EXTINF:-1  tvg-name="风云足球" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云足球.png"  group-title="央视频道",风云足球
 http://45.192.97.170:8880/play/469.m3u8
 #EXTINF:-1  tvg-name="风云足球" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云足球.png"  group-title="央视频道",风云足球
-http://45.192.97.170:8880/play/3531.m3u8
-#EXTINF:-1  tvg-name="风云足球" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云足球.png"  group-title="央视频道",风云足球
 http://45.192.97.170:8880/play/969.m3u8
 #EXTINF:-1  tvg-name="风云足球" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云足球.png"  group-title="央视频道",风云足球
 http://116.233.67.80:8899/rtp/233.18.204.176:5140
@@ -1162,9 +1158,9 @@ http://121.10.7.16:4000/udp/239.253.43.14:5146
 #EXTINF:-1  tvg-name="风云足球" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云足球.png"  group-title="央视频道",风云足球
 http://61.145.188.90:50055/udp/239.253.43.14:5146
 #EXTINF:-1  tvg-name="风云足球" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云足球.png"  group-title="央视频道",风云足球
-http://124.165.232.26:8083/rtp/226.0.2.225:9712
+http://124.165.232.26:8082/rtp/226.0.2.225:9712
 #EXTINF:-1  tvg-name="风云足球" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云足球.png"  group-title="央视频道",风云足球
-http://124.165.232.26:8084/rtp/226.0.2.225:9712
+http://124.165.232.26:8085/rtp/226.0.2.225:9712
 #EXTINF:-1  tvg-name="风云足球" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云足球.png"  group-title="央视频道",风云足球
 http://60.30.67.45:8834/rtp/225.1.2.168:5002
 #EXTINF:-1  tvg-name="风云足球" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云足球.png"  group-title="央视频道",风云足球
@@ -1190,9 +1186,9 @@ http://45.192.97.170:8880/play/971.m3u8
 #EXTINF:-1  tvg-name="高尔夫网球" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/高尔夫网球.png"  group-title="央视频道",高尔夫网球
 http://116.233.67.80:8899/rtp/233.18.204.181:5140
 #EXTINF:-1  tvg-name="高尔夫网球" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/高尔夫网球.png"  group-title="央视频道",高尔夫网球
-http://124.165.232.26:8083/rtp/226.0.2.217:9648
+http://124.165.232.26:8082/rtp/226.0.2.217:9648
 #EXTINF:-1  tvg-name="高尔夫网球" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/高尔夫网球.png"  group-title="央视频道",高尔夫网球
-http://124.165.232.26:8084/rtp/226.0.2.217:9648
+http://124.165.232.26:8085/rtp/226.0.2.217:9648
 #EXTINF:-1  tvg-name="高尔夫网球" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/高尔夫网球.png"  group-title="央视频道",高尔夫网球
 http://60.30.67.45:8834/rtp/225.1.2.169:5002
 #EXTINF:-1  tvg-name="高尔夫网球" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/高尔夫网球.png"  group-title="央视频道",高尔夫网球
@@ -1222,8 +1218,6 @@ http://45.192.97.170:8880/play/438.m3u8
 #EXTINF:-1  tvg-name="世界地理" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/世界地理.png"  group-title="央视频道",世界地理
 http://45.192.97.170:8880/play/473.m3u8
 #EXTINF:-1  tvg-name="世界地理" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/世界地理.png"  group-title="央视频道",世界地理
-http://45.192.97.170:8880/play/3533.m3u8
-#EXTINF:-1  tvg-name="世界地理" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/世界地理.png"  group-title="央视频道",世界地理
 http://45.192.97.170:8880/play/973.m3u8
 #EXTINF:-1  tvg-name="世界地理" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/世界地理.png"  group-title="央视频道",世界地理
 http://2.0754.eu.org/tsfile/live/1046_1.m3u8?key=txiptv&playlive=1&down=1
@@ -1234,15 +1228,17 @@ http://121.10.7.16:4000/udp/239.253.43.7:5146
 #EXTINF:-1  tvg-name="世界地理" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/世界地理.png"  group-title="央视频道",世界地理
 http://61.145.188.90:50055/udp/239.253.43.7:5146
 #EXTINF:-1  tvg-name="世界地理" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/世界地理.png"  group-title="央视频道",世界地理
-http://124.165.232.26:8083/rtp/226.0.2.222:9688
+http://124.165.232.26:8082/rtp/226.0.2.222:9688
 #EXTINF:-1  tvg-name="世界地理" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/世界地理.png"  group-title="央视频道",世界地理
-http://124.165.232.26:8084/rtp/226.0.2.222:9688
+http://124.165.232.26:8085/rtp/226.0.2.222:9688
 #EXTINF:-1  tvg-name="世界地理" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/世界地理.png"  group-title="央视频道",世界地理
 http://60.30.67.45:8834/rtp/225.1.2.171:5002
 #EXTINF:-1  tvg-name="世界地理" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/世界地理.png"  group-title="央视频道",世界地理
 http://60.30.67.44:8834/rtp/225.1.2.171:5002
 #EXTINF:-1  tvg-name="世界地理" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/世界地理.png"  group-title="央视频道",世界地理
 rtsp://183.59.56.116:554/PLTV/88888905/224/3221229959/10000100000000060000000011037426_0.smil?0&accountinfo=%7E%7EV2.0%7EitOVtQcPxFXPmllDB1u98w%7EzJeEdQQK6GK7r2Q5jZjxjKYhZiHklGs8wg1XyXUSKdk5d8f2s2AYjzO2-qcyDeaExan3Pra4cuU_Whoju6BKGf666OGX7-GKwJrfpZjwyfM~ExtInfoWNHSPSTb+3AG0FnUkYLPMw=-1%2C0%2C1%2C%2C%2C2%2C%2C%2C%2C2%2CEND&GuardEncType=2
+#EXTINF:-1  tvg-name="世界地理" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/世界地理.png"  group-title="央视频道",世界地理
+http://120.87.4.9:80/PLTV/88888973/224/3221226617/10000100000000060000000001611742_0.smil/01.m3u8?fmt=ts2hls,123,01.m3u8,0,8593,0,0&accountinfo=7P9/PZjGeZIv+PttGdhw9SUy2v3weVxkOFl4CStfwsm3BmTwjyEukLKuM5iU1lseBZDxCwf5YrdN1G/8GFRT4QWZ1F4+6A1eDkDeh5XZlpvpn23wIF+ldb6dnBPa8zHj,END&GuardEncType=2&tenantId=8601
 #EXTINF:-1  tvg-name="风云音乐" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云音乐.png"  group-title="央视频道",风云音乐
 http://59.32.97.68:9901/tsfile/live/1039_1.m3u8?key=txiptv&playlive=1&authid=0
 #EXTINF:-1  tvg-name="风云音乐" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云音乐.png"  group-title="央视频道",风云音乐
@@ -1258,8 +1254,6 @@ http://45.192.97.170:8880/play/433.m3u8
 #EXTINF:-1  tvg-name="风云音乐" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云音乐.png"  group-title="央视频道",风云音乐
 http://45.192.97.170:8880/play/468.m3u8
 #EXTINF:-1  tvg-name="风云音乐" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云音乐.png"  group-title="央视频道",风云音乐
-http://45.192.97.170:8880/play/3525.m3u8
-#EXTINF:-1  tvg-name="风云音乐" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云音乐.png"  group-title="央视频道",风云音乐
 http://45.192.97.170:8880/play/978.m3u8
 #EXTINF:-1  tvg-name="风云音乐" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云音乐.png"  group-title="央视频道",风云音乐
 http://116.233.67.80:8899/rtp/233.18.204.185:5140
@@ -1268,9 +1262,9 @@ http://121.10.7.16:4000/udp/239.253.43.6:5146
 #EXTINF:-1  tvg-name="风云音乐" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云音乐.png"  group-title="央视频道",风云音乐
 http://61.145.188.90:50055/udp/239.253.43.6:5146
 #EXTINF:-1  tvg-name="风云音乐" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云音乐.png"  group-title="央视频道",风云音乐
-http://124.165.232.26:8083/rtp/226.0.2.220:9672
+http://124.165.232.26:8082/rtp/226.0.2.220:9672
 #EXTINF:-1  tvg-name="风云音乐" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云音乐.png"  group-title="央视频道",风云音乐
-http://124.165.232.26:8084/rtp/226.0.2.220:9672
+http://124.165.232.26:8085/rtp/226.0.2.220:9672
 #EXTINF:-1  tvg-name="风云音乐" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云音乐.png"  group-title="央视频道",风云音乐
 http://60.30.67.45:8834/rtp/225.1.2.176:5002
 #EXTINF:-1  tvg-name="风云音乐" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云音乐.png"  group-title="央视频道",风云音乐
@@ -1283,6 +1277,8 @@ http://120.87.4.25:80/PLTV/88888973/224/3221226627/10000100000000060000000001611
 http://120.87.19.109:80/PLTV/88888973/224/3221226627/10000100000000060000000001611773_0.smil/01.m3u8?fmt=ts2hls,244,01.m3u8&accountinfo=UoQbCSdhOfs+Fhzpjb+WON1faRQ9pU15SBx6EULzJM/q63EjPL5/UXSVfEKzDq3xRgbvV66y9+/3FtgpnmCOEQWZ1F4+6A1eDkDeh5XZlpvpn23wIF+ldb6dnBPa8zHj,END&tenantId=8601
 #EXTINF:-1  tvg-name="风云音乐" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云音乐.png"  group-title="央视频道",风云音乐
 http://38.75.136.137:98/gslb/dsdqpub/fyyy.m3u8?auth=testpub
+#EXTINF:-1  tvg-name="风云音乐" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/风云音乐.png"  group-title="央视频道",风云音乐
+http://198.204.228.26/live/fyyy.m3u8
 #EXTINF:-1  tvg-name="女性时尚" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/女性时尚.png"  group-title="央视频道",女性时尚
 http://107.150.60.122/live/nxss.m3u8
 #EXTINF:-1  tvg-name="女性时尚" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/女性时尚.png"  group-title="央视频道",女性时尚
@@ -1292,8 +1288,6 @@ http://45.192.97.170:8880/play/437.m3u8
 #EXTINF:-1  tvg-name="女性时尚" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/女性时尚.png"  group-title="央视频道",女性时尚
 http://45.192.97.170:8880/play/472.m3u8
 #EXTINF:-1  tvg-name="女性时尚" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/女性时尚.png"  group-title="央视频道",女性时尚
-http://45.192.97.170:8880/play/3529.m3u8
-#EXTINF:-1  tvg-name="女性时尚" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/女性时尚.png"  group-title="央视频道",女性时尚
 http://45.192.97.170:8880/play/972.m3u8
 #EXTINF:-1  tvg-name="女性时尚" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/女性时尚.png"  group-title="央视频道",女性时尚
 http://116.233.67.80:8899/rtp/233.18.204.180:5140
@@ -1302,9 +1296,9 @@ http://121.10.7.16:4000/udp/239.253.43.8:5146
 #EXTINF:-1  tvg-name="女性时尚" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/女性时尚.png"  group-title="央视频道",女性时尚
 http://61.145.188.90:50055/udp/239.253.43.8:5146
 #EXTINF:-1  tvg-name="女性时尚" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/女性时尚.png"  group-title="央视频道",女性时尚
-http://124.165.232.26:8083/rtp/226.0.2.226:9720
+http://124.165.232.26:8082/rtp/226.0.2.226:9720
 #EXTINF:-1  tvg-name="女性时尚" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/女性时尚.png"  group-title="央视频道",女性时尚
-http://124.165.232.26:8084/rtp/226.0.2.226:9720
+http://124.165.232.26:8085/rtp/226.0.2.226:9720
 #EXTINF:-1  tvg-name="女性时尚" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/女性时尚.png"  group-title="央视频道",女性时尚
 http://60.30.67.45:8834/rtp/225.1.2.172:5002
 #EXTINF:-1  tvg-name="女性时尚" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/女性时尚.png"  group-title="央视频道",女性时尚
@@ -1319,6 +1313,8 @@ http://120.87.19.109:80/PLTV/88888973/224/3221226621/100001000000000600000000016
 http://38.75.136.137:98/gslb/dsdqpub/nxss.m3u8?auth=testpub
 #EXTINF:-1  tvg-name="女性时尚" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/女性时尚.png"  group-title="央视频道",女性时尚
 http://198.204.228.26/live/nxss.m3u8
+#EXTINF:-1  tvg-name="女性时尚" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/女性时尚.png"  group-title="央视频道",女性时尚
+http://120.238.88.141:9901/tsfile/live/1103_1.m3u8
 #EXTINF:-1  tvg-name="怀旧剧场" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/怀旧剧场.png"  group-title="央视频道",怀旧剧场
 http://59.32.97.68:9901/tsfile/live/1006_1.m3u8?key=txiptv&playlive=1&authid=0
 #EXTINF:-1  tvg-name="怀旧剧场" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/怀旧剧场.png"  group-title="央视频道",怀旧剧场
@@ -1342,8 +1338,6 @@ http://45.192.97.170:8880/play/439.m3u8
 #EXTINF:-1  tvg-name="怀旧剧场" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/怀旧剧场.png"  group-title="央视频道",怀旧剧场
 http://45.192.97.170:8880/play/474.m3u8
 #EXTINF:-1  tvg-name="怀旧剧场" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/怀旧剧场.png"  group-title="央视频道",怀旧剧场
-http://45.192.97.170:8880/play/3528.m3u8
-#EXTINF:-1  tvg-name="怀旧剧场" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/怀旧剧场.png"  group-title="央视频道",怀旧剧场
 http://45.192.97.170:8880/play/974.m3u8
 #EXTINF:-1  tvg-name="怀旧剧场" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/怀旧剧场.png"  group-title="央视频道",怀旧剧场
 http://2.0754.eu.org/tsfile/live/1048_1.m3u8?key=txiptv&playlive=1&down=1
@@ -1354,11 +1348,13 @@ http://121.10.7.16:4000/udp/239.253.43.5:5146
 #EXTINF:-1  tvg-name="怀旧剧场" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/怀旧剧场.png"  group-title="央视频道",怀旧剧场
 http://61.145.188.90:50055/udp/239.253.43.5:5146
 #EXTINF:-1  tvg-name="怀旧剧场" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/怀旧剧场.png"  group-title="央视频道",怀旧剧场
-http://124.165.232.26:8083/rtp/226.0.2.224:9704
+http://124.165.232.26:8082/rtp/226.0.2.224:9704
 #EXTINF:-1  tvg-name="怀旧剧场" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/怀旧剧场.png"  group-title="央视频道",怀旧剧场
-http://124.165.232.26:8084/rtp/226.0.2.224:9704
+http://124.165.232.26:8085/rtp/226.0.2.224:9704
 #EXTINF:-1  tvg-name="怀旧剧场" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/怀旧剧场.png"  group-title="央视频道",怀旧剧场
 http://60.30.67.45:8834/rtp/225.1.2.173:5002
+#EXTINF:-1  tvg-name="怀旧剧场" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/怀旧剧场.png"  group-title="央视频道",怀旧剧场
+http://60.30.67.44:8834/rtp/225.1.2.173:5002
 #EXTINF:-1  tvg-name="央视文化精品" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/央视文化精品.png"  group-title="央视频道",央视文化精品
 http://60.30.67.45:8834/rtp/225.1.2.177:5002
 #EXTINF:-1  tvg-name="央视文化精品" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/央视文化精品.png"  group-title="央视频道",央视文化精品
@@ -1394,17 +1390,15 @@ http://45.192.97.170:8880/play/430.m3u8
 #EXTINF:-1  tvg-name="电视指南" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/电视指南.png"  group-title="央视频道",电视指南
 http://45.192.97.170:8880/play/465.m3u8
 #EXTINF:-1  tvg-name="电视指南" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/电视指南.png"  group-title="央视频道",电视指南
-http://45.192.97.170:8880/play/3532.m3u8
-#EXTINF:-1  tvg-name="电视指南" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/电视指南.png"  group-title="央视频道",电视指南
 http://45.192.97.170:8880/play/968.m3u8
 #EXTINF:-1  tvg-name="电视指南" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/电视指南.png"  group-title="央视频道",电视指南
 http://121.10.7.16:4000/udp/239.253.43.10:5146
 #EXTINF:-1  tvg-name="电视指南" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/电视指南.png"  group-title="央视频道",电视指南
 http://61.145.188.90:50055/udp/239.253.43.10:5146
 #EXTINF:-1  tvg-name="电视指南" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/电视指南.png"  group-title="央视频道",电视指南
-http://124.165.232.26:8083/rtp/226.0.2.218:9656
+http://124.165.232.26:8082/rtp/226.0.2.218:9656
 #EXTINF:-1  tvg-name="电视指南" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/电视指南.png"  group-title="央视频道",电视指南
-http://124.165.232.26:8084/rtp/226.0.2.218:9656
+http://124.165.232.26:8085/rtp/226.0.2.218:9656
 #EXTINF:-1  tvg-name="电视指南" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/电视指南.png"  group-title="央视频道",电视指南
 http://60.30.67.45:8834/rtp/225.1.2.167:5002
 #EXTINF:-1  tvg-name="电视指南" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/电视指南.png"  group-title="央视频道",电视指南
@@ -1462,23 +1456,19 @@ http://njdm.i234.me:1234/624878970
 #EXTINF:-1  tvg-name="发现之旅" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/发现之旅.png"  group-title="央视频道",发现之旅
 https://live.chinacert.cftest5.cn/cnmg/live/624878970
 #EXTINF:-1  tvg-name="CCTV4K" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CCTV4K.png"  group-title="央视频道",CCTV4K
-http://45.192.97.170:8880/play/3577.m3u8
-#EXTINF:-1  tvg-name="CCTV4K" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CCTV4K.png"  group-title="央视频道",CCTV4K
 http://116.233.67.80:8899/rtp/233.18.204.188:5140
 #EXTINF:-1  tvg-name="CCTV4K" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CCTV4K.png"  group-title="央视频道",CCTV4K
 http://116.233.67.80:8899/rtp/233.18.204.204:5140
-#EXTINF:-1  tvg-name="CCTV4K" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CCTV4K.png"  group-title="央视频道",CCTV4K
-http://182.135.66.163:18888/rtp/239.94.0.20:5140
-#EXTINF:-1  tvg-name="CCTV4K" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CCTV4K.png"  group-title="央视频道",CCTV4K
-http://182.135.66.163:18888/rtp/239.94.2.163:5140
 #EXTINF:-1  tvg-name="CCTV4K" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CCTV4K.png"  group-title="央视频道",CCTV4K
 http://182.135.66.163:1888/rtp/239.94.0.20:5140
 #EXTINF:-1  tvg-name="CCTV4K" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CCTV4K.png"  group-title="央视频道",CCTV4K
 http://182.135.66.163:1888/rtp/239.94.2.163:5140
 #EXTINF:-1  tvg-name="CCTV4K" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CCTV4K.png"  group-title="央视频道",CCTV4K
+http://182.135.66.163:18888/rtp/239.94.0.20:5140
+#EXTINF:-1  tvg-name="CCTV4K" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CCTV4K.png"  group-title="央视频道",CCTV4K
+http://182.135.66.163:18888/rtp/239.94.2.163:5140
+#EXTINF:-1  tvg-name="CCTV4K" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CCTV4K.png"  group-title="央视频道",CCTV4K
 http://tsl76.vfoo.cc:2096/cctv4k.m3u8
-#EXTINF:-1  tvg-name="CCTV8K" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CCTV8K.png"  group-title="央视频道",CCTV8K
-http://45.192.97.170:8880/play/3584.m3u8
 #EXTINF:-1  tvg-name="CCTV8K" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CCTV8K.png"  group-title="央视频道",CCTV8K
 http://tsl76.vfoo.cc:2096/cctv8k.m3u8
 #EXTINF:-1  tvg-name="CETV1" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV1.png"  group-title="央视频道",CETV1
@@ -1508,19 +1498,19 @@ http://112.64.108.59:7788/923287154
 #EXTINF:-1  tvg-name="CETV1" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV1.png"  group-title="央视频道",CETV1
 http://116.233.67.80:8899/rtp/233.18.204.98:5140
 #EXTINF:-1  tvg-name="CETV1" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV1.png"  group-title="央视频道",CETV1
-http://183.222.15.202:4321/rtp/239.11.0.139:5140
-#EXTINF:-1  tvg-name="CETV1" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV1.png"  group-title="央视频道",CETV1
 http://121.10.7.16:4000/udp/239.77.1.222:5146
 #EXTINF:-1  tvg-name="CETV1" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV1.png"  group-title="央视频道",CETV1
 http://61.145.188.90:50055/udp/239.77.1.222:5146
 #EXTINF:-1  tvg-name="CETV1" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV1.png"  group-title="央视频道",CETV1
-http://222.92.158.110:9889/rtp/239.49.8.115:8000
-#EXTINF:-1  tvg-name="CETV1" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV1.png"  group-title="央视频道",CETV1
-http://222.92.158.109:9889/rtp/239.49.8.115:8000
+http://183.222.15.202:4321/rtp/239.11.0.139:5140
 #EXTINF:-1  tvg-name="CETV1" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV1.png"  group-title="央视频道",CETV1
 http://123.120.6.99:4022/rtp/239.3.1.57:8152
 #EXTINF:-1  tvg-name="CETV1" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV1.png"  group-title="央视频道",CETV1
-http://125.33.209.235:5588/rtp/239.3.1.57:8152
+http://123.117.173.7:8118/rtp/239.3.1.57:8152
+#EXTINF:-1  tvg-name="CETV1" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV1.png"  group-title="央视频道",CETV1
+http://124.165.232.26:8082/rtp/226.0.2.181:9360
+#EXTINF:-1  tvg-name="CETV1" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV1.png"  group-title="央视频道",CETV1
+http://124.165.232.26:8085/rtp/226.0.2.181:9360
 #EXTINF:-1  tvg-name="CETV2" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV2.png"  group-title="央视频道",CETV2
 http://139.224.44.53:1234/923287211
 #EXTINF:-1  tvg-name="CETV2" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV2.png"  group-title="央视频道",CETV2
@@ -1542,11 +1532,11 @@ http://183.222.15.202:4321/rtp/239.11.0.246:5140
 #EXTINF:-1  tvg-name="CETV2" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV2.png"  group-title="央视频道",CETV2
 http://123.120.6.99:4022/rtp/239.3.1.54:4120
 #EXTINF:-1  tvg-name="CETV2" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV2.png"  group-title="央视频道",CETV2
-http://125.33.209.235:5588/rtp/239.3.1.54:4120
-#EXTINF:-1  tvg-name="CETV2" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV2.png"  group-title="央视频道",CETV2
-http://182.135.66.163:18888/rtp/239.94.2.228:5140
+http://123.117.173.7:8118/rtp/239.3.1.54:4120
 #EXTINF:-1  tvg-name="CETV2" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV2.png"  group-title="央视频道",CETV2
 http://182.135.66.163:1888/rtp/239.94.2.228:5140
+#EXTINF:-1  tvg-name="CETV2" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV2.png"  group-title="央视频道",CETV2
+http://182.135.66.163:18888/rtp/239.94.2.228:5140
 #EXTINF:-1  tvg-name="CETV2" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV2.png"  group-title="央视频道",CETV2
 http://rrs03.hw.gmcc.net:8088/PLTV/651/224/3221226718/1.m3u8
 #EXTINF:-1  tvg-name="CETV2" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV2.png"  group-title="央视频道",CETV2
@@ -1588,29 +1578,29 @@ http://112.64.108.59:7788/923287339
 #EXTINF:-1  tvg-name="CETV4" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV4.png"  group-title="央视频道",CETV4
 http://116.233.67.80:8899/rtp/233.18.204.111:5140
 #EXTINF:-1  tvg-name="CETV4" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV4.png"  group-title="央视频道",CETV4
-http://183.222.15.202:4321/rtp/239.11.0.248:5140
-#EXTINF:-1  tvg-name="CETV4" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV4.png"  group-title="央视频道",CETV4
 http://121.10.7.16:4000/udp/239.253.43.40:5146
 #EXTINF:-1  tvg-name="CETV4" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV4.png"  group-title="央视频道",CETV4
 http://61.145.188.90:50055/udp/239.253.43.40:5146
 #EXTINF:-1  tvg-name="CETV4" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV4.png"  group-title="央视频道",CETV4
-http://222.92.158.110:9889/rtp/239.49.0.125:8000
-#EXTINF:-1  tvg-name="CETV4" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV4.png"  group-title="央视频道",CETV4
-http://222.92.158.109:9889/rtp/239.49.0.125:8000
+http://183.222.15.202:4321/rtp/239.11.0.248:5140
 #EXTINF:-1  tvg-name="CETV4" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV4.png"  group-title="央视频道",CETV4
 http://123.120.6.99:4022/rtp/239.3.1.56:4120
 #EXTINF:-1  tvg-name="CETV4" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV4.png"  group-title="央视频道",CETV4
-http://125.33.209.235:5588/rtp/239.3.1.56:4120
-#EXTINF:-1  tvg-name="CETV4" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV4.png"  group-title="央视频道",CETV4
-http://182.135.66.163:18888/rtp/239.94.1.20:5140
-#EXTINF:-1  tvg-name="CETV4" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV4.png"  group-title="央视频道",CETV4
-http://182.135.66.163:18888/rtp/239.94.2.229:5140
+http://123.117.173.7:8118/rtp/239.3.1.56:4120
 #EXTINF:-1  tvg-name="CETV4" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV4.png"  group-title="央视频道",CETV4
 http://182.135.66.163:1888/rtp/239.94.1.20:5140
 #EXTINF:-1  tvg-name="CETV4" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV4.png"  group-title="央视频道",CETV4
 http://182.135.66.163:1888/rtp/239.94.2.229:5140
 #EXTINF:-1  tvg-name="CETV4" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV4.png"  group-title="央视频道",CETV4
+http://182.135.66.163:18888/rtp/239.94.1.20:5140
+#EXTINF:-1  tvg-name="CETV4" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV4.png"  group-title="央视频道",CETV4
+http://182.135.66.163:18888/rtp/239.94.2.229:5140
+#EXTINF:-1  tvg-name="CETV4" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV4.png"  group-title="央视频道",CETV4
 http://rrs03.hw.gmcc.net:8088/PLTV/651/224/3221226724/1.m3u8
+#EXTINF:-1  tvg-name="CETV4" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV4.png"  group-title="央视频道",CETV4
+http://my1nas.dpdns.org:1234/923287339
+#EXTINF:-1  tvg-name="CETV4" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CETV4.png"  group-title="央视频道",CETV4
+http://www.20260809.xyz:1234/923287339
 #EXTINF:-1 tvg-logo="http://raw.githubusercontent.com/jn950/live/refs/heads/main/tvlogo/CCTV1.png" group-title="央视频道",CCTV1
 http://139.211.217.79:9004/hls/1/index.m3u8
 #EXTINF:-1 tvg-logo="http://raw.githubusercontent.com/jn950/live/refs/heads/main/tvlogo/CCTV2.png" group-title="央视频道",CCTV2
@@ -2106,17 +2096,17 @@ http://rrs03.hw.gmcc.net:8088/PLTV/81/224/3221226695/1.m3u8
 #EXTINF:-1  tvg-name="厦门卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/厦门卫视.png"  group-title="卫视频道",厦门卫视
 http://45.192.97.170:8880/play/540.m3u8
 #EXTINF:-1  tvg-name="厦门卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/厦门卫视.png"  group-title="卫视频道",厦门卫视
-http://45.192.97.170:8880/play/589.m3u8
-#EXTINF:-1  tvg-name="厦门卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/厦门卫视.png"  group-title="卫视频道",厦门卫视
-http://45.192.97.170:8880/play/3567.m3u8
-#EXTINF:-1  tvg-name="厦门卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/厦门卫视.png"  group-title="卫视频道",厦门卫视
 http://45.192.97.170:8880/play/4510.m3u8
 #EXTINF:-1  tvg-name="厦门卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/厦门卫视.png"  group-title="卫视频道",厦门卫视
 http://45.192.97.170:8880/play/881.m3u8
 #EXTINF:-1  tvg-name="厦门卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/厦门卫视.png"  group-title="卫视频道",厦门卫视
-http://222.92.158.110:9889/rtp/239.49.0.230:8000
+http://123.120.6.99:4022/rtp/239.3.1.143:4120
 #EXTINF:-1  tvg-name="厦门卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/厦门卫视.png"  group-title="卫视频道",厦门卫视
-http://222.92.158.109:9889/rtp/239.49.0.230:8000
+http://123.117.173.7:8118/rtp/239.3.1.143:4120
+#EXTINF:-1  tvg-name="厦门卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/厦门卫视.png"  group-title="卫视频道",厦门卫视
+http://182.135.66.163:1888/rtp/239.94.2.210:5140
+#EXTINF:-1  tvg-name="厦门卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/厦门卫视.png"  group-title="卫视频道",厦门卫视
+http://182.135.66.163:18888/rtp/239.94.2.210:5140
 #EXTINF:-1  tvg-name="吉林卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/吉林卫视.png"  group-title="卫视频道",吉林卫视
 http://139.224.44.53:1234/947472500
 #EXTINF:-1  tvg-name="吉林卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/吉林卫视.png"  group-title="卫视频道",吉林卫视
@@ -2436,11 +2426,9 @@ http://rrs03.hw.gmcc.net:8088/PLTV/651/224/3221226681/1.m3u8
 #EXTINF:-1  tvg-name="广西卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/广西卫视.png"  group-title="卫视频道",广西卫视
 http://rrs03.hw.gmcc.net:8088/PLTV/81/224/3221226681/1.m3u8
 #EXTINF:-1  tvg-name="延边卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/延边卫视.png"  group-title="卫视频道",延边卫视
-http://45.192.97.170:8880/play/601.m3u8
+http://182.135.66.163:1888/rtp/239.94.2.213:5140
 #EXTINF:-1  tvg-name="延边卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/延边卫视.png"  group-title="卫视频道",延边卫视
 http://182.135.66.163:18888/rtp/239.94.2.213:5140
-#EXTINF:-1  tvg-name="延边卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/延边卫视.png"  group-title="卫视频道",延边卫视
-http://182.135.66.163:1888/rtp/239.94.2.213:5140
 #EXTINF:-1  tvg-name="延边卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/延边卫视.png"  group-title="卫视频道",延边卫视
 http://120.76.248.139/live/bfgd/4200000117.m3u8
 #EXTINF:-1  tvg-name="延边卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/延边卫视.png"  group-title="卫视频道",延边卫视
@@ -2972,17 +2960,17 @@ http://webcast.hkstv.tv/livestream/mutfysrq/playlist.m3u8
 #EXTINF:-1  tvg-name="香港卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/香港卫视.png"  group-title="卫视频道",香港卫视
 https://hkstv.tv/api/m3u8-proxy?url=http%3A%2F%2Fwebcast.hkstv.tv%2Flivestream%2Fmutfysrq%2Fplaylist.m3u8
 #EXTINF:-1  tvg-name="康巴卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/康巴卫视.png"  group-title="卫视频道",康巴卫视
-http://182.135.66.163:18888/rtp/239.94.0.78:5140
-#EXTINF:-1  tvg-name="康巴卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/康巴卫视.png"  group-title="卫视频道",康巴卫视
-http://182.135.66.163:18888/rtp/239.94.2.184:5140
-#EXTINF:-1  tvg-name="康巴卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/康巴卫视.png"  group-title="卫视频道",康巴卫视
 http://182.135.66.163:1888/rtp/239.94.0.78:5140
 #EXTINF:-1  tvg-name="康巴卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/康巴卫视.png"  group-title="卫视频道",康巴卫视
 http://182.135.66.163:1888/rtp/239.94.2.184:5140
-#EXTINF:-1  tvg-name="安多卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/安多卫视.png"  group-title="卫视频道",安多卫视
-http://182.135.66.163:18888/rtp/239.94.2.216:5140
+#EXTINF:-1  tvg-name="康巴卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/康巴卫视.png"  group-title="卫视频道",康巴卫视
+http://182.135.66.163:18888/rtp/239.94.0.78:5140
+#EXTINF:-1  tvg-name="康巴卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/康巴卫视.png"  group-title="卫视频道",康巴卫视
+http://182.135.66.163:18888/rtp/239.94.2.184:5140
 #EXTINF:-1  tvg-name="安多卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/安多卫视.png"  group-title="卫视频道",安多卫视
 http://182.135.66.163:1888/rtp/239.94.2.216:5140
+#EXTINF:-1  tvg-name="安多卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/安多卫视.png"  group-title="卫视频道",安多卫视
+http://182.135.66.163:18888/rtp/239.94.2.216:5140
 #EXTINF:-1  tvg-name="安多卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/安多卫视.png"  group-title="卫视频道",安多卫视
 http://k.061899.xyz/k.php?id=adws
 #EXTINF:-1  tvg-name="三沙卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/三沙卫视.png"  group-title="卫视频道",三沙卫视
@@ -3000,8 +2988,6 @@ http://42.94.209.140:7788/961023778
 #EXTINF:-1  tvg-name="三沙卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/三沙卫视.png"  group-title="卫视频道",三沙卫视
 http://45.192.97.170:8880/play/535.m3u8
 #EXTINF:-1  tvg-name="三沙卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/三沙卫视.png"  group-title="卫视频道",三沙卫视
-http://45.192.97.170:8880/play/3562.m3u8
-#EXTINF:-1  tvg-name="三沙卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/三沙卫视.png"  group-title="卫视频道",三沙卫视
 http://45.192.97.170:8880/play/883.m3u8
 #EXTINF:-1  tvg-name="三沙卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/三沙卫视.png"  group-title="卫视频道",三沙卫视
 http://112.64.108.59:7788/961023778
@@ -3012,19 +2998,21 @@ http://121.10.7.16:4000/udp/239.253.43.113:5146
 #EXTINF:-1  tvg-name="三沙卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/三沙卫视.png"  group-title="卫视频道",三沙卫视
 http://61.145.188.90:50055/udp/239.253.43.113:5146
 #EXTINF:-1  tvg-name="三沙卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/三沙卫视.png"  group-title="卫视频道",三沙卫视
-http://222.92.158.110:9889/rtp/239.49.0.167:8000
-#EXTINF:-1  tvg-name="三沙卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/三沙卫视.png"  group-title="卫视频道",三沙卫视
-http://222.92.158.110:9889/rtp/239.49.0.165:8000
-#EXTINF:-1  tvg-name="三沙卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/三沙卫视.png"  group-title="卫视频道",三沙卫视
-http://222.92.158.109:9889/rtp/239.49.0.167:8000
-#EXTINF:-1  tvg-name="三沙卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/三沙卫视.png"  group-title="卫视频道",三沙卫视
-http://222.92.158.109:9889/rtp/239.49.0.165:8000
-#EXTINF:-1  tvg-name="三沙卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/三沙卫视.png"  group-title="卫视频道",三沙卫视
 http://123.120.6.99:4022/rtp/239.3.1.155:4120
 #EXTINF:-1  tvg-name="三沙卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/三沙卫视.png"  group-title="卫视频道",三沙卫视
-http://125.33.209.235:5588/rtp/239.3.1.155:4120
+http://123.117.173.7:8118/rtp/239.3.1.155:4120
+#EXTINF:-1  tvg-name="三沙卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/三沙卫视.png"  group-title="卫视频道",三沙卫视
+http://182.135.66.163:1888/rtp/239.94.2.211:5140
 #EXTINF:-1  tvg-name="三沙卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/三沙卫视.png"  group-title="卫视频道",三沙卫视
 http://182.135.66.163:18888/rtp/239.94.2.211:5140
+#EXTINF:-1  tvg-name="三沙卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/三沙卫视.png"  group-title="卫视频道",三沙卫视
+http://60.30.67.45:8834/rtp/225.1.2.181:5002
+#EXTINF:-1  tvg-name="三沙卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/三沙卫视.png"  group-title="卫视频道",三沙卫视
+http://60.30.67.44:8834/rtp/225.1.2.181:5002
+#EXTINF:-1  tvg-name="三沙卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/三沙卫视.png"  group-title="卫视频道",三沙卫视
+http://120.87.19.109:80/PLTV/88888973/224/3221226649/10000100000000060000000002048494_0.smil/01.m3u8?fmt=ts2hls,244,01.m3u8&accountinfo=UoQbCSdhOfs+Fhzpjb+WON1faRQ9pU15SBx6EULzJM/q63EjPL5/UXSVfEKzDq3xAzrGSdlkbJrazIxHM46TEQWZ1F4+6A1eDkDeh5XZlpvpn23wIF+ldb6dnBPa8zHj,END&tenantId=8601
+#EXTINF:-1  tvg-name="三沙卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/三沙卫视.png"  group-title="卫视频道",三沙卫视
+http://120.87.19.109:80/PLTV/88888973/224/3221226641/10000100000000060000000002048493_0.smil/01.m3u8?fmt=ts2hls,244,01.m3u8&accountinfo=UoQbCSdhOfs+Fhzpjb+WON1faRQ9pU15SBx6EULzJM/q63EjPL5/UXSVfEKzDq3xPd+hGcad9w4t/gctIKGSlQWZ1F4+6A1eDkDeh5XZlpvpn23wIF+ldb6dnBPa8zHj,END&tenantId=8601
 #EXTINF:-1  tvg-name="兵团卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/兵团卫视.png"  group-title="卫视频道",兵团卫视
 http://139.224.44.53:1234/956923145
 #EXTINF:-1  tvg-name="兵团卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/兵团卫视.png"  group-title="卫视频道",兵团卫视
@@ -3064,7 +3052,7 @@ http://45.192.97.170:8880/play/506.m3u8
 #EXTINF:-1  tvg-name="兵团卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/兵团卫视.png"  group-title="卫视频道",兵团卫视
 http://45.192.97.170:8880/play/510.m3u8
 #EXTINF:-1  tvg-name="兵团卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/兵团卫视.png"  group-title="卫视频道",兵团卫视
-http://45.192.97.170:8880/play/590.m3u8
+http://45.192.97.170:8880/play/4516.m3u8
 #EXTINF:-1  tvg-name="黑龙江卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/黑龙江卫视.png"  group-title="卫视频道",黑龙江卫视
 http://139.224.44.53:1234/738906901
 #EXTINF:-1  tvg-name="黑龙江卫视" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/黑龙江卫视.png"  group-title="卫视频道",黑龙江卫视
@@ -4044,13 +4032,13 @@ http://120.198.84.146:9901/tsfile/live/1053_1.m3u8
 #EXTINF:-1  tvg-name="凤凰中文" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/凤凰中文.png"  group-title="凤凰频道",凤凰中文
 http://45.192.97.170:8880/play/677.m3u8
 #EXTINF:-1  tvg-name="凤凰中文" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/凤凰中文.png"  group-title="凤凰频道",凤凰中文
-http://182.135.66.163:18888/rtp/239.94.2.51:5140
-#EXTINF:-1  tvg-name="凤凰中文" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/凤凰中文.png"  group-title="凤凰频道",凤凰中文
-http://182.135.66.163:18888/rtp/239.94.2.52:5140
-#EXTINF:-1  tvg-name="凤凰中文" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/凤凰中文.png"  group-title="凤凰频道",凤凰中文
 http://182.135.66.163:1888/rtp/239.94.2.51:5140
 #EXTINF:-1  tvg-name="凤凰中文" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/凤凰中文.png"  group-title="凤凰频道",凤凰中文
 http://182.135.66.163:1888/rtp/239.94.2.52:5140
+#EXTINF:-1  tvg-name="凤凰中文" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/凤凰中文.png"  group-title="凤凰频道",凤凰中文
+http://182.135.66.163:18888/rtp/239.94.2.51:5140
+#EXTINF:-1  tvg-name="凤凰中文" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/凤凰中文.png"  group-title="凤凰频道",凤凰中文
+http://182.135.66.163:18888/rtp/239.94.2.52:5140
 #EXTINF:-1  tvg-name="凤凰中文" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/凤凰中文.png"  group-title="凤凰频道",凤凰中文
 https://cdn6.cc.cd/163189/fhzw
 #EXTINF:-1  tvg-name="凤凰中文" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/凤凰中文.png"  group-title="凤凰频道",凤凰中文
@@ -4064,13 +4052,13 @@ http://173.208.234.146/live/fhzx.m3u8
 #EXTINF:-1  tvg-name="凤凰资讯" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/凤凰资讯.png"  group-title="凤凰频道",凤凰资讯
 http://45.192.97.170:8880/play/695.m3u8
 #EXTINF:-1  tvg-name="凤凰资讯" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/凤凰资讯.png"  group-title="凤凰频道",凤凰资讯
-http://182.135.66.163:18888/rtp/239.94.2.49:5140
-#EXTINF:-1  tvg-name="凤凰资讯" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/凤凰资讯.png"  group-title="凤凰频道",凤凰资讯
-http://182.135.66.163:18888/rtp/239.94.2.50:5140
-#EXTINF:-1  tvg-name="凤凰资讯" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/凤凰资讯.png"  group-title="凤凰频道",凤凰资讯
 http://182.135.66.163:1888/rtp/239.94.2.49:5140
 #EXTINF:-1  tvg-name="凤凰资讯" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/凤凰资讯.png"  group-title="凤凰频道",凤凰资讯
 http://182.135.66.163:1888/rtp/239.94.2.50:5140
+#EXTINF:-1  tvg-name="凤凰资讯" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/凤凰资讯.png"  group-title="凤凰频道",凤凰资讯
+http://182.135.66.163:18888/rtp/239.94.2.49:5140
+#EXTINF:-1  tvg-name="凤凰资讯" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/凤凰资讯.png"  group-title="凤凰频道",凤凰资讯
+http://182.135.66.163:18888/rtp/239.94.2.50:5140
 #EXTINF:-1  tvg-name="凤凰资讯" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/凤凰资讯.png"  group-title="凤凰频道",凤凰资讯
 https://cdn6.cc.cd/163189/fhzx
 #EXTINF:-1  tvg-name="凤凰资讯" tvg-logo="https://ghfast.top/https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/凤凰资讯.png"  group-title="凤凰频道",凤凰资讯
