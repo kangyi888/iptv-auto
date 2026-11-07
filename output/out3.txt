@@ -87,6 +87,7 @@ CCTV-央视台球,http://192.151.150.154/live/ystq.m3u8
 岭南戏曲,http://107.150.60.122/live/gdlnxq.m3u8
 广东4K超高清,http://107.150.60.122/live/gdtvs3.m3u8
 广东少儿,http://107.150.60.122/live/gdtvs5.m3u8
+广东体育,http://gdsport.ccwu.cc/hls/1/index.m3u8
 广东体育,http://hmfs.f3322.net:3388/hls/6/index.m3u8
 广东体育,http://107.150.60.122/live/gdty.m3u8
 广东民生,http://107.150.60.122/live/gdgg.m3u8
@@ -870,17 +871,6 @@ CGTN[1024*576],http://120.196.232.124:8088/rrs03.hw.gmcc.net/PLTV/651/224/322122
 咪咕40[1920*1080],http://120.196.232.124:8088/rrs03.hw.gmcc.net/PLTV/651/224/3221227027/1.m3u8
 咪咕41[1920*1080],http://120.196.232.124:8088/rrs03.hw.gmcc.net/PLTV/651/224/3221227030/1.m3u8
 咪咕42[1920*1080],http://120.196.232.124:8088/rrs03.hw.gmcc.net/PLTV/651/224/3221227036/1.m3u8
-广东酒店源-地方,#genre#
-翡翠台,http://183.62.8.58:50085/tsfile/live/0017_1.m3u8?key=txiptv&playlive=1&authid=0
-明珠台,http://183.62.8.58:50085/tsfile/live/0018_1.m3u8?key=txiptv&playlive=1&authid=0
-广东体育,http://183.62.8.58:50085/tsfile/live/1003_1.m3u8?key=txiptv&playlive=1&authid=0
-广东卫视,http://183.62.8.58:50085/tsfile/live/0019_1.m3u8?key=txiptv&playlive=1&authid=0
-广东珠江,http://183.62.8.58:50085/tsfile/live/1000_1.m3u8?key=txiptv&playlive=1&authid=0
-广东新闻,http://183.62.8.58:50085/tsfile/live/1001_1.m3u8?key=txiptv&playlive=1&authid=0
-广东公共,http://183.62.8.58:50085/tsfile/live/1002_1.m3u8?key=txiptv&playlive=1&authid=0
-凤凰中文,http://bobohome.ignorelist.com:20247/fengshows?id=2.m3u8
-凤凰资讯,http://bobohome.ignorelist.com:20247/fengshows?id=1.m3u8
-凤凰香港,http://bobohome.ignorelist.com:20247/fengshows?id=3.m3u8
 广东,#genre#
 广东卫视HD,http://nn.7x9d.cn/91tv1.php?e=gdwshd&line=0
 广东卫视HD,http://nn.7x9d.cn/91tv1.php?e=gdwshd&line=1
@@ -1121,6 +1111,9 @@ GRTN文化频道,http://nn.7x9d.cn/91tv1.php?e=gdwh&line=2
 汕头经济,http://iptv.cqshushu.com/gddf.php?id=stsh&token=5016ff7ffbefa493cc3daf0b844ba256
 汕头综合,http://38.75.136.137:82/live1/gdsttv.m3u8?id=gdsttv1&auth=51a17fcc4d35bef1fea04018cbfafdeb
 汕头经济,http://38.75.136.137:82/live1/gdsttv.m3u8?id=gdsttv2&auth=51a17fcc4d35bef1fea04018cbfafdeb
+凤凰中文,http://bobohome.ignorelist.com:20247/fengshows?id=2.m3u8
+凤凰资讯,http://bobohome.ignorelist.com:20247/fengshows?id=1.m3u8
+凤凰香港,http://bobohome.ignorelist.com:20247/fengshows?id=3.m3u8
 凤凰中文,http://lvs.hunancatv.cn:8060/live/FHZW_8000.m3u8?deviceid=866265039837531&sid=Yp6brv0MWYukAl4oJr9yrw%3D%3D&nonce=Ri1TgJg9dlAK&acl=0111
 凤凰资讯,http://lvs.hunancatv.cn:8060/live/FHZX_8000.m3u8?deviceid=866265039837531&sid=Yp6brv0MWYukAl4oJr9yrw%3D%3D&nonce=Ri1TgJg9dlAK&acl=0111
 凤凰电影台,http://lvs.hunancatv.cn:8060/live/GEFPD_8000.m3u8?deviceid=866265039837531&sid=Yp6brv0MWYukAl4oJr9yrw%3D%3D&nonce=Ri1TgJg9dlAK&acl=0111
@@ -1141,6 +1134,8 @@ GRTN文化频道,http://nn.7x9d.cn/91tv1.php?e=gdwh&line=2
 广州综合,https://tencentplay.gztv.com/live/zonghes.m3u8?txSecret=9e5008d4b91944fa76a957a93ae54870&txTime=1903e5f1cfd
 广州新闻,https://tencentplay.gztv.com/live/xinwen.m3u8?txSecret=4c09e8c2d093bcb692e036ae54ff87c7&txTime=1903e37cd8a
 广东卫视,http://go.bkpcp.top/mg/gdws
+翡翠台,http://183.62.8.58:50085/tsfile/live/0017_1.m3u8?key=txiptv&playlive=1&authid=0
+明珠台,http://183.62.8.58:50085/tsfile/live/0018_1.m3u8?key=txiptv&playlive=1&authid=0
 广东酒店源,#genre#
 汕头综合,http://120.238.88.141:9901/tsfile/live/1112_1.m3u8
 翡翠台,http://120.238.88.141:9901/tsfile/live/1005_1.m3u8
