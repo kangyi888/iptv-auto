@@ -2033,21 +2033,18 @@ NOW英超3,http://109.61.81.147:1935/cdn7/767/mpegts?token=1d8c18a3d377f5418d250
 咪咕3K咪视通,http://gslbserv.itv.cmvideo.cn/3000000010000015686/1.m3u8?channel-id=FifastbLive&Contentid=3000000010000015686&livemode=1&stbId=790995DFA9F142B8B114EDA03A996C61
 咪咕4K咪视通,http://gslbserv.itv.cmvideo.cn/3000000010000005180/1.m3u8?channel-id=FifastbLive&Contentid=3000000010000005180&livemode=1&stbId=790995DFA9F142B8B114EDA03A996C61
 香港极速,#genre#
-TVB翡翠台2,https://fcheck-stream-pull-test.wpscdn.cn/live/FC-BvLLP1S3bOvijFKQQX9kxGMapfVZKRG9zyy5nmAAlvBB5Q8UlJdzFxCQ5eIwDGmkWBdRsfy709Fb5zNi.flv
 翡翠台0,http://cc.123.rr.kg/163189/fct
 翡翠台,https://cdn3.indevs.in/stream/tvb/fct/
 翡翠台1,http://120.198.84.146:9901/tsfile/live/1020_1.m3u8
-TVB无线新闻台2,https://fcheck-stream-pull-test.wpscdn.cn/live/WX-iVDCqjRV6K97cwYylZXETIhLYoOZ1921faIA5xq1UiJnOyzht65zefiamEnUxyYTrKlx7ofZo5JQIoVq.flv
 无线新闻台0,http://cc.123.rr.kg/163189/wxxw
 无线新闻台1,http://cc.123.rr.kg/163189/wxxwt
-无线新闻台2,rtmp://school.3class.cc/live/yifaTV-125
 无线新闻台3,http://128.14.206.166/pull-f5.flive.douyincdn.com/live/wxxw.flv
-TVB Plus0,http://167.88.62.43:64012/0.ts
 TVB Plus,https://cdn3.indevs.in/stream/tvb/tvbp/
 无线明珠台(英),https://pull-mpeg-hs-cny-f5.douyincdn.com/live/mz-mddei9SE4s0zj8HEbn8tBnrtWDU9zjgfHU6JcWXOfwluNR2MDkSZeCXZBOupjnnWB5k1TvFWJChkJbq6.flv
-无线明珠台(粤),https://fcheck-stream-pull-test.wpscdn.cn/live/MZ-RNt0JI7hKDpexwEeuLwbSM79gbjNLoSP8Vh42CCzxLTWEFzooMBAklJTKa5V0WDTNy8jQnFCUgTKLHSL.flv
-HOY77台,https://fcheck-stream-pull-test.wpscdn.cn/live/HOY77-0rDc8FozrC9trSEhgHQeirO88ElWZOF5KfFK5zJSNYNWmCEMGKKR9kLjJICWCnYreQf6KPRVkWiUQLFf.flv
-HOY78台,https://fcheck-stream-pull-test.wpscdn.cn/live/HOY78-6PHHml8w6FvdgR7AF1IoFRnrVmR2GsMyCwLBSIXD28FnKcjnqm7NaCKvHnn8BJlTrKX4XHRBQ5GwzqLJ.flv
+VIUTV,https://pull-mpeg-hs-cny-f5.douyincdn.com/live/viu-1WpQedL8WJaZKhj2PONLCEJ63JVlcncTqknAqIOpFmMOU0y7YlvyEfsHBqIaMLQdEXmHLGzsTWco4J4b.flv
+VIUTV6,https://pull-mpeg-hs-cny-f5.douyincdn.com/live/viu6-hDt1OMH7VGtvhYO39p86RuMntEEDXeKseoGXcbsrDLgRAhg2K6IYmsbZ5GcJvCAIyEVQf6DPxLINnCF6.flv
+港台电视31,https://pull-mpeg-hs-cny-f5.douyincdn.com/live/31-xL3VwhqCDNAop22L8HlkpNEX2FCXHmdtNv8V6s4IGzgdj4llUjQ6qllwaEyE4t9EOqOh5IpNfLTmuUuG.flv
+港台电视32,https://pull-mpeg-hs-cny-f5.douyincdn.com/live/32-eWeJ09h6oF4h4tpTcLru0dSFExlH8DGJ7saFGxAbt7SCakQLcvr2hKv2m04oVwlrOxPY1LB4GafCgHd3.flv
 HOY TV,https://cc.123.rr.kg/163189/hoy
 翡翠剧集台,http://cc.123.rr.kg/163189/tvbd
 TVB1,http://cc.123.rr.kg/163189/tvb1
@@ -2060,11 +2057,11 @@ TVB娱乐新闻,http://cc.123.rr.kg/163189/ylxw
 凤凰香港台,https://pull-mpeg-hs-cny-f5.douyincdn.com/live/fhxg-NpmWCJUXg5mHnVx7DxmiyCrNGMICZQrcqzOOFMXXCOY00h8jA0A7ps9jlYE4aRY1lOi6sYSHrLzzBMHv.flv
 凤凰资讯台,https://pull-mpeg-hs-cny-f5.douyincdn.com/live/fhzx-FUELRRDSMjF56EtzQmI2w3fvc9vW5DVmd44Ao7YCz1hVDkKyG4vPqpDFX0NjnnA1zuZNSAoli0g1outY.flv
 凤凰中文台,https://pull-mpeg-hs-cny-f5.douyincdn.com/live/fhzw-XhBtvRMDDO9YJ1UYzEe869mPWqpEZ2ZeuCcKoNrc6SbfHh9fz5ooFWJQkZObsjF0PcbZHPt4pr7wfsUh.flv
+凤凰中文2,http://173.208.234.146/live/fhzw.m3u8
 凤凰中文0,http://cc.123.rr.kg/163189/fhzw
-凤凰中文1,http://120.237.39.10:9901/tsfile/live/1037_1.m3u8?key=txiptv&playlive=1&down=1
-凤凰中文3,http://156.238.224.170:7001/fhx.php?id=cn
+凤凰资讯2,http://173.208.234.146/live/fhzx.m3u8
 凤凰资讯0,http://cc.123.rr.kg/163189/fhzx
-凤凰资讯1,http://120.237.39.10:9901/tsfile/live/1036_1.m3u8?key=txiptv&playlive=1&down=1
+凤凰香港1,http://173.208.234.146/live/fhxg.m3u8
 凤凰香港0,http://cc.123.rr.kg/163189/fhhk
 凤凰香港2,http://43.152.224.209/qctv.fengshows.cn/live/0701phk72.flv
 NOW新闻台,https://fast.hidns.vip/163189/now
@@ -2170,6 +2167,7 @@ CETV早期教育,http://120.198.84.146:9901/tsfile/live/1079_1.m3u8
 广州新闻,https://tencentplaywebsite.gztv.com/live/xinwen.m3u8?txSecret=59c3ea18b724415cf80ef20be36478aa&txTime=194f7e9215c
 广州综合,https://tencentplay.gztv.com/live/zonghes.m3u8?txSecret=46aee5b07e8bb8fc3f5402d93d4859b0&txTime=18f5ff0491d
 南国都市4K,https://tencentplay.gztv.com/live/nanguodushi.m3u8?txSecret=8880922787572f2b10ae19ae314058d1&txTime=18f5ff0491d
+广东珠江,http://173.208.234.146/live/gdzj.m3u8?zbj
 广东珠江1,http://192.151.150.154/live/gdzj.m3u8
 广东珠江3,http://74.91.26.218:82/live/gdzj.m3u8
 广东珠江4,http://63.141.230.178/live/gdzj.m3u8
@@ -2189,8 +2187,9 @@ CETV早期教育,http://120.198.84.146:9901/tsfile/live/1079_1.m3u8
 广东新闻3,http://63.141.230.178/live/gdxw.m3u8
 广东经济科教0,http://74.91.26.218:82/live/gdtvs1.m3u8
 广东经济科教,http://173.208.234.146/live/gdtvs1.m3u8
+广东民生,http://173.208.234.146/live/gdtvs1.m3u8?zbj
 广东民生0,http://63.141.230.178/live/gdgg.m3u8
-广东民生,http://198.204.228.26/live/gdgg.m3u8?ysp
+广东民生1,http://198.204.228.26/live/gdgg.m3u8?ysp
 广东4K超高清,http://198.204.228.26/live/gdtvs3.m3u8?ysp
 广东卫视高清,http://120.198.84.146:9901/tsfile/live/1000_1.m3u8
 广东经济科教高清,http://120.198.84.146:9901/tsfile/live/1008_1.m3u8
@@ -2521,6 +2520,16 @@ CCTV-17,http://lbyjlt.vv5678.cn:8880/udp/239.77.1.121:5146
 解说_冷君说电影,https://live.metshop.top/huya/16739452
 解说_恐怖电影解说,https://live.metshop.top/huya/16741179
 测试区_7890,#genre#
+终极造型,https://xcdn11.uedugtgt.com/video/m3u8/202309/03/88301c049786/playlist.m3u8
+自然光下,https://xcdn12.zgnzcyw.com/video/m3u8/202310/11/b52333b3a991/playlist.m3u8
+从小在小学,https://xcdn11.uedugtgt.com/video/m3u8/202310/21/511c96499945/playlist.m3u8
+纯真学园,https://xcdn12.zgnzcyw.com/video/m3u8/202310/12/267feb917e6b/playlist.m3u8
+老公打人,https://xcdn11.uedugtgt.com/video/m3u8/202309/26/c20686ce7733/playlist.m3u8
+还没审核,https://xcdn12.zgnzcyw.com/video/m3u8/202310/11/5904692ed2aa/playlist.m3u8
+我的生,https://xcdn11.uedugtgt.com/video/m3u8/202309/03/edb30a197884/playlist.m3u8
+疯狂里昂,https://xcdn10.uedugtgt.com/video/m3u8/202308/26/67f662ef61a5/playlist.m3u8
+所以它是一个,https://xcdn11.uedugtgt.com/video/m3u8/202309/03/2ff3468a6216/playlist.m3u8
+知识分子,https://xcdn12.zgnzcyw.com/video/m3u8/202310/07/9a1abe714259/playlist.m3u8
 喷水总冠军,https://xcdn11.uedugtgt.com/video/m3u8/202310/19/e17b91e34441/playlist.m3u8
 极品网红,https://xcdn11.uedugtgt.com/video/m3u8/202310/06/8f257e0eea30/playlist.m3u8
 激情,https://18bb.sxyjspsc.com/video/m3u8/202601/30/b45d8c3610f5/playlist.m3u8
