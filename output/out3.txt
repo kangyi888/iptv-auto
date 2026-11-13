@@ -2037,6 +2037,7 @@ NOW英超3,http://109.61.81.147:1935/cdn7/767/mpegts?token=1d8c18a3d377f5418d250
 无线新闻台0,http://cc.123.rr.kg/163189/wxxw
 无线新闻台1,http://cc.123.rr.kg/163189/wxxwt
 无线新闻台3,http://128.14.206.166/pull-f5.flive.douyincdn.com/live/wxxw.flv
+无线新闻台4,http://mtayeh.ottb.xyz/live/774710333494/659822672281/58592.m3u8
 TVB Plus,https://cdn3.indevs.in/stream/tvb/tvbp/
 无线明珠台(英),https://pull-mpeg-hs-cny-f5.douyincdn.com/live/mz-mddei9SE4s0zj8HEbn8tBnrtWDU9zjgfHU6JcWXOfwluNR2MDkSZeCXZBOupjnnWB5k1TvFWJChkJbq6.flv
 VIUTV,https://pull-mpeg-hs-cny-f5.douyincdn.com/live/viu-1WpQedL8WJaZKhj2PONLCEJ63JVlcncTqknAqIOpFmMOU0y7YlvyEfsHBqIaMLQdEXmHLGzsTWco4J4b.flv
