@@ -13,6 +13,7 @@
 $blackGroupList = @(
     "更新时间"
     "幼儿园"
+    "测试区"
 )
 # 分组重命名映射：清洗后旧分组名 => 新分组名
 $renameGroupMap = @{
