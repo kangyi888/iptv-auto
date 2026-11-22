@@ -1082,8 +1082,8 @@ GRTN文化频道,http://nn.7x9d.cn/91tv1.php?e=gdwh&line=2
 汕头经济,http://8.138.7.223/tv/gdst.php?id=st2
 汕头综合,http://27.41.245.196:12315/hls/901/index.m3u8
 汕头经济,http://27.41.245.196:12315/hls/903/index.m3u8
-汕头综合,http://iptv.cqshushu.com/gddf.php?id=stzh&token=7e4313ef45bf6d2b685e71850d0ab294
-汕头经济,http://iptv.cqshushu.com/gddf.php?id=stsh&token=7e4313ef45bf6d2b685e71850d0ab294
+汕头综合,http://iptv.cqshushu.com/gddf.php?id=stzh&token=297ed1187881b9d2b5689ac0c757e841
+汕头经济,http://iptv.cqshushu.com/gddf.php?id=stsh&token=297ed1187881b9d2b5689ac0c757e841
 汕头综合,http://38.75.136.137:82/live1/gdsttv.m3u8?id=gdsttv1&auth=51a17fcc4d35bef1fea04018cbfafdeb
 汕头经济,http://38.75.136.137:82/live1/gdsttv.m3u8?id=gdsttv2&auth=51a17fcc4d35bef1fea04018cbfafdeb
 凤凰中文,http://bobohome.ignorelist.com:20247/fengshows?id=2.m3u8
