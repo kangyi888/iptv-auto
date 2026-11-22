@@ -30,7 +30,7 @@ $renameGroupMap = @{
 # M3U远程源列表
 $sourceUrls = @(
     "https://gh-proxy.org/https://raw.githubusercontent.com/kangyi888/IPTV/refs/heads/main/live.m3u",
-    "http://110.mypressonline.com/cn/web.txt",
+    "http://110.mypressonline.com/cn/web.m3u",
     "https://gh-proxy.org/https://raw.githubusercontent.com/jn950/live/main/tv/holive.m3u"
 )
 $outFile = "output\out1.m3u"
