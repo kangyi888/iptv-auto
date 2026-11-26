@@ -2111,14 +2111,13 @@ NOW英超3,http://109.61.81.147:1935/cdn7/767/mpegts?token=1d8c18a3d377f5418d250
 TVB Plus,https://cdn3.indevs.in/stream/tvb/tvbp/
 HOY TV,https://cc.123.rr.kg/163189/hoy
 TVB娱乐新闻,http://cc.123.rr.kg/163189/ylxw
+TVB娱乐新闻1,https://hrtv.118138.xyz/hr/VFZC5aix5LmQ5paw6Ze7.m3u8
 澳门莲花,http://cc.123.rr.kg/163189/amlh
 凤凰中文0,http://cc.123.rr.kg/163189/fhzw
 凤凰资讯0,http://cc.123.rr.kg/163189/fhzx
 凤凰香港0,http://cc.123.rr.kg/163189/fhhk
 凤凰香港2,http://43.152.224.209/qctv.fengshows.cn/live/0701phk72.flv
-super识食,https://cdn.metvbox.stream/v2/live/hv5gxvmgu90u/b490f5a4578e0e98/709465.m3u8
-super识叹,https://cdn.metvbox.stream/v2/live/hv5gxvmgu90u/b490f5a4578e0e98/709466.m3u8
-super剧场,https://cdn.metvbox.stream/v2/live/hv5gxvmgu90u/b490f5a4578e0e98/709468.m3u8
+NOW新闻台,https://hrtv.118138.xyz/hr/Tm935paw6Ze7.m3u8
 HOY77,https://fast.hidns.vip/163189/hoy
 HOY78,https://fast.hidns.vip/163189/hoy78
 华丽翡翠台(新加坡),https://cdn3.indevs.in/stream/live/jade/
